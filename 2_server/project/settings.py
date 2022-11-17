@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # app
     'accounts',
+    'movies',
     # 추가설치는 무조건 공식문서보고 하세요. 이름이 다른경우있음
     'corsheaders',
     'rest_framework',
