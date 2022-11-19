@@ -13,32 +13,47 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import MovieCard from '@/components/MovieCard';
+
 export default {
-  components: { MovieCard },
+  components: { 
+    MovieCard 
+  },
+
   data() {
     return {
       movies: [],
-    };
-  },
-  async created() {
-    const API_KEY = process.env.VUE_APP_API_KEY;
-    const API_URL = process.env.VUE_APP_API_URL;
-
-    try {
-      const response = await axios.get(API_URL, {
-        params: {
-          api_key: API_KEY,
-          language: "ko-KR",
-        }
-      });
-      this.movies = response.data.results;
-    } catch (error) {
-      console.log(error);
     }
   },
-};
+
+  created() {
+    this.getMovies()
+  },
+  methods: {
+    getMovies() {
+      this.$store.dispatch('getMovies')
+      }
+    }
+  
+ 
+  // async created() {
+  //   const API_KEY = process.env.VUE_APP_API_KEY;
+  //   const API_URL = process.env.VUE_APP_API_URL;
+
+  //   try {
+  //     const response = await axios.get(API_URL, {
+  //       params: {
+  //         api_key: API_KEY,
+  //         language: "ko-KR",
+  //       }
+  //     });
+  //     this.movies = response.data.results;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
+}
 </script>
 
 <style scoped>

@@ -21,10 +21,11 @@ npm run serve
 11월 17일
 
 - server
-    - 영화, 리뷰, 영화찜, 리뷰좋아요 모델, 시리얼라이즈 구현
+  
+  - 영화, 리뷰, 영화찜, 리뷰좋아요 모델, 시리얼라이즈 구현
 
 - client
-    - item을 제외한 전체 component 구성
-    - server와 연결
-    - 회원가입, 로그인까지 완료
-    
+  
+  - item을 제외한 전체 component 구성
+  - server와 연결
+  - 회원가입, 로그인까지 완료
