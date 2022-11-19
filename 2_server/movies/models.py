@@ -10,7 +10,7 @@ class Genre(models.Model):
 class Movie(models.Model):
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movie')
     title = models.CharField(max_length=100)    #영화제목
-    movie_id = models.CharField(max_length=100) #영화 아이디
+    movie_id = models.IntegerField() #영화 아이디
     youtube_id = models.CharField(max_length=100)   # 유튜브용 아이디
     overview = models.TextField()       # 줄거리
     release_date = models.DateField()   # 영화 개봉일

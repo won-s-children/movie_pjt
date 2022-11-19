@@ -37,8 +37,11 @@ export default {
         password1: password1,
         password2: password2,
       }
-
-      this.$store.dispatch('signUp', payload)
+      if(password1 !== password2){
+        alert("비밀번호가 서로 일치하지 않습니다.")
+      }else{
+        this.$store.dispatch('signUp', payload)
+      }
 
     }
   }

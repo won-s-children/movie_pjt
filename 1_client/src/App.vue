@@ -12,14 +12,29 @@
       <router-link to="/movie">전체 영화</router-link> |
       <router-link to="/wishlist">내가 찜한 영화</router-link> |
       <router-link to="/theater">영화관 소식</router-link> |
-      <router-link to="/">로그아웃</router-link>
+      <a v-on:click="logOut">로그아웃</a>
     </nav>
     <router-view/>
   </div>
 </template>
 
 <script>
-
+export default {
+  components: {
+  },
+  computed:{
+    isLoggedIn() {
+      return this.$store.getters.isLogin
+    }
+  },
+  created() {
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('logOut')
+    }
+  }
+}
 </script>
 
 <style>

@@ -31,9 +31,12 @@ export default new Vuex.Store({
     // 회원가입 && 로그인
     SAVE_TOKEN(state, token) {
       state.token = token
-      console.log(state.token)
       router.push({ name: 'home' })
-    }
+    },
+    DELETE_TOKEN(state) {
+      state.token = null
+      router.push({ name: 'home' }).catch(()=>{});
+    },
   },
   actions: {
     getMovies(context) {
@@ -55,13 +58,8 @@ export default new Vuex.Store({
     },    
 
     async signUp(context, payload) {
-      console.log(payload)
-        if (payload.password1 !== payload.password1) {
-        alert("비밀번호가 일치하지 않습니다.");
-        return;
-        }
         try {
-          axios({
+           await axios({
             method: 'post',
             url: `${API_URL}/accounts/signup/`,
             data: {
@@ -75,11 +73,10 @@ export default new Vuex.Store({
             context.commit('SAVE_TOKEN', res.data.key)
           })
         } catch (error) {
-        console.log(error);
+          console.log(error);
         }
     },
     logIn(context, payload) {
-      console.log(payload)
       axios({
         method: 'post',
         url: `${API_URL}/accounts/login/`,
@@ -89,8 +86,19 @@ export default new Vuex.Store({
         }
       })
         .then((res) => {
-          // console.log(res)
           context.commit('SAVE_TOKEN', res.data.key)
+        })
+    },
+    logOut(context) {
+      axios({
+        method: 'post',
+        url: `${API_URL}/accounts/logout/`,
+      })
+        .then((res) => {
+          if(res){
+            console.log(res)
+            context.commit('DELETE_TOKEN')
+          }
         })
     },
   },

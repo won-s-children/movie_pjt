@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>112의 Home</h3>
-    <YourMoviesVue />
+    <YourMoviesVue v-if="isLoggedIn"/>
     <hr>
     <RecentMoviesVue />
     <hr>
@@ -19,7 +19,16 @@ import SeasonsMoviesVue from '@/components/SeasonsMovies.vue';
 
 export default {
   components: { YourMoviesVue, RecentMoviesVue, LikesMoviesVue, SeasonsMoviesVue },
+  computed:{
+    isLoggedIn() {
+      return this.$store.getters.isLogin
+    }
+  },
+  created() {
+  },
+  methods: {
 
+  }
 };
 </script>
 
