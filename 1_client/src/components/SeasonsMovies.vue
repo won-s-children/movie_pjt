@@ -8,6 +8,7 @@
           <SeasonMovieCard
             v-bind:posterPath="movie.poster_path"
             v-bind:movieId="movie.id"
+            v-bind:title="movie.title"
           />
         </li>
       </div>

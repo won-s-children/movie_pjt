@@ -8,13 +8,12 @@
 </template>
 
 <script>
-const imgUrl='https://image.tmdb.org/t/p/w500/'
 export default {
   props: ["title", "posterPath", "overview", "releaseDate"],
 
   computed: {
     movieImgURL() {
-      return imgUrl+this.posterPath;
+      return `https://themoviedb.org/t/p/w600_and_h900_bestv2${this.posterPath}`;
     }
   }
 }
