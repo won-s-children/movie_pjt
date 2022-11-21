@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>지금 봐야하는 영화</h3>
-    <p>겨울에 핫초코 마시면서 볼 영화는?! ❄</p>
+    <p>겨울에 온 가족과 볼 영화는?! ❄</p>
     <ul class="slider">
       <div class="slides">
         <li v-for="movie in seasonsmovies" v-bind:key="movie.id">

@@ -11,7 +11,7 @@
           <li class="text-pad">유저평점: {{ total_vote }}</li>
           <li v-if="userlikeMovie" class="text-pad"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
           <li v-else class="text-pad"><b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon></li>
-          <li><button v-on:click="goYoutube">예고편</button></li>
+          <li><b-button pill v-on:click="goYoutube">예고편</b-button></li>
         </ul>
         <p>{{ movie?.overview }}</p>
       </div>
@@ -29,12 +29,11 @@
     <b-list-group class="reviewList">
       <b-list-group-item class="review" v-for="(review, index) in reviews" v-bind:key="index">
         <ul>
-          <li>{{ review.user.username }}</li>
-          <li>{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }}</li>
-          <li>{{ review.user_vote_average}}</li>
-          <li>{{ review.content}}</li>
+          <li>{{ review.user.username }}  {{ review.user_vote_average}}점</li>
+          <li>{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
+          <li>{{ review.content }}</li>
         </ul>
-        <button v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</button>
+        <b-button pill variant="outline-secondary" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</b-button>
       </b-list-group-item>
     </b-list-group>
   </div>
@@ -247,7 +246,13 @@ export default {
 .review:hover {
   background-color: rgb(221, 232, 248);
 }
-.review{
+.review {
   display: flex;
+}
+.content-form {
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: grey;
+  align-items: center;
 }
 </style>
