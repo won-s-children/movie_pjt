@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link :to="{ name: 'moviedetail', params: { id: movieId } }">
-        <img v-bind:src="movieImgURL" alt="movieImg" />
+        <img v-bind:src="movieImgURL" alt="movieImg" height="300" />
     </router-link>
   </div>
 </template>

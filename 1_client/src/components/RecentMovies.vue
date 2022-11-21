@@ -4,7 +4,7 @@
     <ul class="slider">
       <div class="slides">
         <li v-for="movie in movies" v-bind:key="movie.id">
-          <MovieCard class="col-lg-2 col-md-3 col-sm-4"
+          <MovieCard
             v-bind:title="movie.title"
             v-bind:posterPath="movie.poster_path"
             v-bind:releaseDate="movie.release_date"
@@ -55,7 +55,7 @@ export default {
 .box {
   display: grid;
   padding: 20px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
 }
 
