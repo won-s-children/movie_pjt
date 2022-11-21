@@ -41,18 +41,12 @@ export default {
 <style scoped>
 #container{
   align-items: center;
-  border: 3px solid rgb(244, 15, 15);
+  /* border: 3px solid rgb(244, 15, 15); */
 }
 
-#username{margin-bottom: 30px;}
-#password1{margin-bottom: 30px;}
-#password2{margin-bottom: 30px;}
-.signupform{
-  width:500px; 
-  align-content: center;
-  text-align: center;
-  border: 1px solid #000;
-  }
+#username{margin-bottom: 30px; margin-top:30px;}
+#password{margin-bottom: 30px; margin-bottom:30px;}
+
 
 
 </style>

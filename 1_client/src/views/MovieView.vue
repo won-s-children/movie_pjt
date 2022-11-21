@@ -7,75 +7,36 @@
         />
       </li>
     </ul> -->
-  <div class="home">
+  <div class="big_box">
+  <div>
     <div class="overflow-auto">
-      <!-- <b-pagination
-        v-model="currentPage"
-        :total-rows="rows"
-        :per-page="perPage"
-      ></b-pagination> -->
       <ul class="box">
         <li v-for="perPageMovie in perPageMovies" v-bind:key="perPageMovie.id">
-          <MovieCard class="card" v-bind:posterPath="perPageMovie.poster_path" />
+          <AllMovieCard class="card" v-bind:posterPath="perPageMovie.poster_path" 
+            v-bind:movieId="perPageMovie.id"
+          />
         </li>
       </ul>
-        <b-pagination
+        <b-pagination class="pagination"
         v-model="currentPage"
         :total-rows="rows"
         :per-page="perPage"
       ></b-pagination>
     </div>
   </div>
-
-<!-- <div>
-      현재 선택된 페이지 : {{selectPage}}
-      <paginate
-          :page-count="pageCount"
-          :page-range="3"
-          :margin-pages="2"
-          :click-handler="changePage"
-          :prev-text="'prev'"
-          :next-text="'next'"
-          :container-class="'pagination'"
-          :page-class="'page-item'">
-      </paginate>
-  </div> -->
-
-
-    <!-- <div class="overflow-auto"> -->
-
-    <!-- <b-table
-      id="poster_path"
-      :items="movies"
-      :per-page="perPage"
-      :current-page="currentPage"
-      small
-    ></b-table>
-    
-    <b-pagination
-      v-model="currentPage"
-      :total-rows="rows"
-      :per-page="perPage"
-      aria-controls="movie_id"
-    ></b-pagination>
-
-    <p class="mt-3">Current Page: {{ currentPage }}</p> -->
-    
-  <!-- </div> -->
-
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
 import axios from "axios";
-import MovieCard from '@/components/MovieCard';
+import AllMovieCard from '@/components/AllMovieCard';
 // import Paginate from 'vuejs-paginate';
 // Vue.component('paginate', Paginate)
 
 export default {
   name: "MovieView",
   components: { 
-    MovieCard,
+    AllMovieCard,
   },
 
   data() {
@@ -152,11 +113,14 @@ export default {
 
 
 <style scoped>
+.big_box{
+  text-align: center;
+}
 #container{
-  width:100%;
+  /* width:100%; */
   /* border: 3px solid rgb(255, 0, 0); */
-  background-color: rgb(30, 30, 30);
-  margin-top:0px;
+  /* background-color: rgb(30, 30, 30); */
+  /* margin-top:0px; */
 }
 .card {
   /* border: 1px solid #000; */
@@ -181,5 +145,11 @@ export default {
   margin-top: 50px;
   /* padding: 20px; */
   grid-template-columns: repeat(6, 1fr);
+}
+
+.pagination{
+  /* border: 3px solid rgb(226, 8, 8); */
+  display: flex;
+  justify-content: center;
 }
 </style>
