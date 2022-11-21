@@ -136,7 +136,7 @@ export default {
 }
 
 .card:hover{
-  background-color: rgb(253, 220, 143);
+  background-color: rgb(158, 211, 229);
 }
 
 .box {

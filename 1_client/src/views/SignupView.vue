@@ -1,47 +1,19 @@
 <template>
   <div id="container">
     <h1>💜 회원가입 💜</h1>
-    <form @submit.prevent="signUp" class="signupform">
-      <label for="username">아이디 : </label> &nbsp;
+    <form @submit.prevent="signUp">
+      <label for="username">아이디</label><br>
       <input type="text" id="username" v-model="username"><br>
 
-      <label for="password1">비밀번호 : </label> &nbsp;
+      <label for="password1">비밀번호</label><br>
       <input type="password" id="password1" v-model="password1"><br>
 
-      <label for="password2">비밀번호 확인 : </label> &nbsp;
+      <label for="password2">비밀번호 확인</label><br>
       <input type="password" id="password2" v-model="password2"><br>
       
-      <input type="submit" value="회원가입">
+      <!-- <input type="submit" value="회원가입"> -->
+      <b-button variant="light" type="submit">회원가입</b-button>
     </form>
-
-    <!-- <b-container fluid>
-  <b-row class="my-1">
-    <b-col sm="3">
-      <label for="input-none">No State:</label>
-    </b-col>
-    <b-col sm="9">
-      <b-form-input id="input-none" :state="null" placeholder="No validation"></b-form-input>
-    </b-col>
-  </b-row>
-
-  <b-row class="my-1">
-    <b-col sm="3">
-      <label for="input-valid">Valid State:</label>
-    </b-col>
-    <b-col sm="9">
-      <b-form-input id="input-valid" :state="true" placeholder="Valid input"></b-form-input>
-    </b-col>
-  </b-row>
-
-  <b-row class="my-1">
-    <b-col sm="3">
-      <label for="input-invalid">Invalid State:</label>
-    </b-col>
-    <b-col sm="9">
-      <b-form-input id="input-invalid" :state="false" placeholder="Invalid input"></b-form-input>
-    </b-col>
-  </b-row>
-</b-container> -->
   </div>
 </template>
 
@@ -83,15 +55,16 @@ export default {
   /* border: 3px solid rgb(244, 15, 15); */
 }
 
-#username{margin-bottom: 30px; margin-top:30px;}
-#password1{margin-bottom: 30px;}
-#password2{margin-bottom: 30px;}
-.signupform{
-  /* width:500px;  */
-  /* align-content: center; */
-  /* text-align: center; */
-  /* border: 1px solid #000; */
-  }
+h1{
+  margin-bottom: 40px;
+}
 
+label{
+  font-weight: 500;
+}
+
+#username{margin-bottom: 40px;}
+#password1{margin-bottom: 40px;}
+#password2{margin-bottom: 40px;}
 
 </style>

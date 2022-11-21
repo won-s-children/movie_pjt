@@ -46,16 +46,18 @@ export default {
   
 }
 nav {
-  padding: 8px;
+  padding: 20px;
   background-color: rgb(151, 206, 231);
   text-align: center;
+  margin-bottom:30px;
   
 }
 
 nav a {
   font-weight: bold;
   color: #1b2c3d;
-  text-decoration-line: underline;
+  /* text-decoration-line: underline; */
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
@@ -63,7 +65,8 @@ nav a.router-link-exact-active {
   
 }
 
-text {
-  text-decoration-line: underline;
+.text {
+  /* text-decoration-line: underline; */
+  cursor: pointer;
 }
 </style>
