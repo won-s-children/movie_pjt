@@ -9,7 +9,8 @@
           <li class="text-pad">개봉일자: {{ movie?.release_date }}</li>
           <li class="text-pad">평점: {{ movie?.vote_average }}</li>
           <li class="text-pad">유저평점: {{ total_vote }}</li>
-          <li class="text-pad"><b-icon icon="heart"></b-icon></li>
+          <li v-if="userlikeMovie" class="text-pad"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
+          <li v-else class="text-pad"><b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon></li>
           <li><button v-on:click="goYoutube">예고편</button></li>
         </ul>
         <p>{{ movie?.overview }}</p>
@@ -33,6 +34,7 @@
           <li>{{ review.user_vote_average}}</li>
           <li>{{ review.content}}</li>
         </ul>
+        <button v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</button>
       </b-list-group-item>
     </b-list-group>
   </div>
@@ -75,14 +77,44 @@ export default {
     },
   },
   methods: {
+    userlikeMovie(){
+      if(this.movie.like_users.includes(this.$store.state.user_pk)){
+        return false
+      }
+      return true
+    },
+    likeMovie(movie_pk){
+      axios({
+        method: 'post',
+        url: `${API_URL}/api/v1/movies/${movie_pk}/likes/`,
+        headers: {
+          Authorization: `Token ${this.$store.state.token}`
+        }
+      })
+        .then(() => {
+          // console.log(res)
+          console.log(this.movie)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    checkUser(username){
+      if(username === this.$store.state.username){
+        return true
+      }
+      return false
+    },
     getMovieReviews(){
       axios({
         method: 'get',
         url: `${API_URL}/api/v1/reviews/`
       })
         .then((res) => {
+          console.log(res)
           const tmp = res.data.filter(review => review.movie.id == this.$route.params.id)
           this.reviews = tmp
+          console.log(this.reviews)
         })
         .catch((err) => {
           console.log(err)
@@ -155,7 +187,19 @@ export default {
         .catch((err) => {
           console.log(err)
         })
-      
+    },
+    delReview(review_pk) {
+      axios({
+        method: 'DELETE',
+        url: `${API_URL}/api/v1/reviews/${review_pk}/`
+      })
+        .then((res) => {
+          console.log(res.data)
+          this.$router.go()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
   }
 }
@@ -202,5 +246,8 @@ export default {
 
 .review:hover {
   background-color: rgb(221, 232, 248);
+}
+.review{
+  display: flex;
 }
 </style>

@@ -16,6 +16,8 @@ export default new Vuex.Store({
   ],
   state: {
     token: null,
+    username: null,
+    user_pk: null,
   },
   getters: {
     isLogin(state) {
@@ -33,8 +35,14 @@ export default new Vuex.Store({
     },
     DELETE_TOKEN(state) {
       state.token = null
+      state.user_pk = null
+      state.username = null
       router.push({ name: 'home' }).catch(()=>{});
     },
+    SAVE_USRE_INFO(state, info){
+      state.username = info.username
+      state.user_pk = info.pk
+    }
   },
   actions: {
     async getMovies(context) {
@@ -90,6 +98,19 @@ export default new Vuex.Store({
             console.log(res)
             context.commit('DELETE_TOKEN')
           }
+        })
+    },
+    saveUserInfo(context, payload) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/accounts/user/`,
+        headers: {
+          Authorization: `Token ${payload}`
+        }
+      })
+        .then((res) => {
+          console.log(res.data)
+          context.commit('SAVE_USRE_INFO', res.data)
         })
     },
   },
