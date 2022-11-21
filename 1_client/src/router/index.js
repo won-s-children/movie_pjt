@@ -6,6 +6,7 @@ import WishListView from '../views/WishListView'
 import TheaterView from '../views/TheaterView'
 import SignupView from '../views/SignupView'
 import LoginView from '../views/LoginView'
+import MovieDetailView from '../components/MovieDetail'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,11 @@ const routes = [
     path: '/movie',
     name: 'movie',
     component: MovieView
+  },
+  {
+    path: '/movie/:id',
+    name: 'moviedetail',
+    component: MovieDetailView
   },
   {
     path: '/wishlist',

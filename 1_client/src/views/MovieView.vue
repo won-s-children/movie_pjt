@@ -13,7 +13,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 import MovieCard from '@/components/MovieCard';
 
 export default {
@@ -26,13 +26,23 @@ export default {
       movies: [],
     }
   },
-
   created() {
     this.getMovies()
   },
   methods: {
     getMovies() {
-      this.$store.dispatch('getMovies')
+      const URL = 'http://127.0.0.1:8000'
+      axios({
+        method: 'get',
+        url: `${URL}/api/v1/movies/`,
+      })
+        .then((res) => {
+          console.log(res.data)
+          this.movies = res.data
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       }
     }
   
