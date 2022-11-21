@@ -39,7 +39,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    getMovies(context) {
+    getMovies() {
       axios({
         method: 'get',
         url: `${API_URL}/api/v1/movies/`,

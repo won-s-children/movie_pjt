@@ -10,6 +10,8 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .serializers.movie import MovieListSerializer,MovieSerializer
 from .serializers.review import ReviewSerializer
 from .models import Movie, Review
+import requests
+import json
 
 @api_view(['GET', 'POST'])
 # @permission_classes([IsAuthenticated])
