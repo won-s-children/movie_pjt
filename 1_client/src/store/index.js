@@ -23,6 +23,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    CHANGE_MOVIES(state, movies) {
+      state.movies = movies;
+    },
     // 회원가입 && 로그인
     SAVE_TOKEN(state, token) {
       state.token = token
@@ -34,6 +37,17 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async getMovies(context) {
+      try {
+        const response = await axios.get("http://localhost:8000/api/v1/movies");
+        if (response.data) {
+          console.log(response.data);
+          context.commit("CHANGE_MOVIES", response.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async signUp(context, payload) {
         try {
            await axios({

@@ -11,6 +11,7 @@ Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(vueMoment)
 
+
 Vue.config.productionTip = false
 
 new Vue({

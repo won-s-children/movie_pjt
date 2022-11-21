@@ -11,6 +11,7 @@
 const imgUrl='https://image.tmdb.org/t/p/w500/'
 export default {
   props: ["title", "posterPath", "overview", "releaseDate"],
+
   computed: {
     movieImgURL() {
       return imgUrl+this.posterPath;
