@@ -2,16 +2,14 @@
   <div>
     <!-- 영화상세정보 폼 -->
     <div class="detailwrap">
-      <div>
-        <img v-bind:src="movieImgURL" alt="movieImg" />
-      </div>
-      <div>
-        <h3>{{ movie?.title }}</h3>
+      <img v-bind:src="movieImgURL" alt="movieImg" />
+      <div class="card-container">
+        <h2 class="text-pad">{{ movie?.title }}</h2>
         <ul class="inforwrap">
-          <li>개봉일자: {{ movie?.release_date }}</li>
-          <li>평점: {{ movie?.vote_average }}</li>
-          <li>유저평점: {{ total_vote }}</li>
-          <li><b-icon icon="heart"></b-icon></li>
+          <li class="text-pad">개봉일자: {{ movie?.release_date }}</li>
+          <li class="text-pad">평점: {{ movie?.vote_average }}</li>
+          <li class="text-pad">유저평점: {{ total_vote }}</li>
+          <li class="text-pad"><b-icon icon="heart"></b-icon></li>
           <li><button v-on:click="goYoutube">예고편</button></li>
         </ul>
         <p>{{ movie?.overview }}</p>
@@ -20,20 +18,23 @@
     <!-- 댓글입력 폼 -->
     <div class="reviewSet">
       <input type="number" min="0" max="5" step="1" v-model="user_vote_average">
-      <textarea name="" id="" cols="30" rows="2" v-model="content"></textarea>
-      <button v-on:click="createReview">등록</button>
+      <b-col sm="10">
+        <b-form-input v-model="content" placeholder="평점과 댓글을 입력해주세요."></b-form-input>
+        <!-- <textarea name="" id="" cols="30" rows="2" v-model="content"></textarea> -->
+      </b-col>
+      <b-button variant="outline-secondary" v-on:click="createReview">등록</b-button>
     </div>
     <!-- 댓글 리뷰리스트 폼 -->
-    <div class="reviewList">
-      <div class="review" v-for="(review, index) in reviews" v-bind:key="index">
+    <b-list-group class="reviewList">
+      <b-list-group-item class="review" v-for="(review, index) in reviews" v-bind:key="index">
         <ul>
           <li>{{ review.user.username }}</li>
           <li>{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }}</li>
           <li>{{ review.user_vote_average}}</li>
           <li>{{ review.content}}</li>
         </ul>
-      </div>
-    </div>
+      </b-list-group-item>
+    </b-list-group>
   </div>
 </template>
 
@@ -163,19 +164,43 @@ export default {
 <style>
 .detailwrap{
   display: flex;
-  background-color: antiquewhite;
+  background-color: rgb(221, 235, 245);
 }
 .detailwrap img{
   height: 500px;
+  padding: 20px;
 }
 .inforwrap{
   display: flex;
+  padding: 10px;
+}
+.text-pad {
+  padding-right: 20px;
+  font-weight: bold;
+}
+.form-btn {
+  width: 40px;
 }
 .reviewSet{
   display: flex;
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: aquamarine;
+  background-color: white;
+}
+
+.card-container {
+  width: 80vw;
+  padding: 30px;
+  align-items: center;
+}
+.reviewList {
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.review:hover {
+  background-color: rgb(221, 232, 248);
 }
 </style>

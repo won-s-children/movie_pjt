@@ -12,7 +12,7 @@
       <router-link to="/movie">전체 영화</router-link> |
       <router-link to="/wishlist">내가 찜한 영화</router-link> |
       <router-link to="/theater">영화관 소식</router-link> |
-      <a v-on:click="logOut">로그아웃</a>
+      <a v-on:click="logOut" class="text">로그아웃</a>
     </nav>
     <router-view/>
   </div>
@@ -43,19 +43,27 @@ export default {
   padding-left: 0;
   text-align: center;
   font-family: 'Nanum Gothic', sans-serif;
+  
 }
 nav {
   padding: 8px;
   background-color: rgb(151, 206, 231);
   text-align: center;
+  
 }
 
 nav a {
   font-weight: bold;
   color: #1b2c3d;
+  text-decoration-line: underline;
 }
 
 nav a.router-link-exact-active {
   color: #dfebf8;
+  
+}
+
+text {
+  text-decoration-line: underline;
 }
 </style>
