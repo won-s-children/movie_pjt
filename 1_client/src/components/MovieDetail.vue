@@ -9,7 +9,7 @@
           <li class="text-pad">개봉일자: {{ movie?.release_date }}</li>
           <li class="text-pad">평점: {{ movie?.vote_average }}</li>
           <li class="text-pad">유저평점: {{ total_vote }}</li>
-          <li v-if="userlikeMovie" class="text-pad"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
+          <li v-if="movieLikeFlag" class="text-pad"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
           <li v-else class="text-pad"><b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon></li>
           <li><b-button pill v-on:click="goYoutube">예고편</b-button></li>
         </ul>
@@ -51,6 +51,7 @@ export default {
       user_vote_average: 0,
       content: '',
       reviews: null,
+      movieLikeFlag: false,
     }
   },
   created() {
@@ -76,12 +77,6 @@ export default {
     },
   },
   methods: {
-    userlikeMovie(){
-      if(this.movie.like_users.includes(this.$store.state.user_pk)){
-        return false
-      }
-      return true
-    },
     likeMovie(movie_pk){
       axios({
         method: 'post',
@@ -92,7 +87,9 @@ export default {
       })
         .then(() => {
           // console.log(res)
+          // this.getMovieLike()
           console.log(this.movie)
+          this.movieLikeFlag = !this.movieLikeFlag
         })
         .catch((err) => {
           console.log(err)
@@ -110,10 +107,10 @@ export default {
         url: `${API_URL}/api/v1/reviews/`
       })
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           const tmp = res.data.filter(review => review.movie.id == this.$route.params.id)
           this.reviews = tmp
-          console.log(this.reviews)
+          // console.log(this.reviews)
         })
         .catch((err) => {
           console.log(err)
@@ -127,6 +124,9 @@ export default {
         .then((res) => {
           console.log(res.data)
           this.movie = res.data
+          if(this.movie.like_users.includes(this.$store.state.user_pk)){
+            this.movieLikeFlag = true
+          }
         })
         .catch((err) => {
           console.log(err)
@@ -145,7 +145,7 @@ export default {
           },
         });
         key = response.data.results[0].key
-        console.log(key)
+        // console.log(key)
       } catch (error) {
         console.log(error);
       }
@@ -176,8 +176,8 @@ export default {
           Authorization: `Token ${this.$store.state.token}`
         }
       })
-        .then((res) => {
-          console.log(res)
+        .then(() => {
+          // console.log(res)
           // this.$router.push({ name: 'moviedetail', params: { id: this.$route.params.id }})
           this.$router.go()
           this.user_vote_average = 0
@@ -192,8 +192,8 @@ export default {
         method: 'DELETE',
         url: `${API_URL}/api/v1/reviews/${review_pk}/`
       })
-        .then((res) => {
-          console.log(res.data)
+        .then(() => {
+          // console.log(res.data)
           this.$router.go()
         })
         .catch((err) => {
