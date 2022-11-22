@@ -1,28 +1,44 @@
 <template>
   <div>
     <h3>현재 상영중인 영화</h3>
-    <ul class="slider">
-      <div class="slides">
-        <li v-for="movie in movies" v-bind:key="movie.id" class="movie-list">
-          <MovieCard
-            v-bind:title="movie.title"
-            v-bind:posterPath="movie.poster_path"
-            v-bind:releaseDate="movie.release_date"
-          />
-        </li>
+    <VueSlickCarousel v-bind="settings" v-if="movies.length">
+      <div v-for="movie in movies" v-bind:key="movie.id" class="movie-list">
+        <MovieCard
+          v-bind:title="movie.title"
+          v-bind:posterPath="movie.poster_path"
+          v-bind:releaseDate="movie.release_date"
+        />
       </div>
-    </ul>
+    </VueSlickCarousel>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import MovieCard from '@/components/MovieCard';
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
-  components: { MovieCard },
+  components: { 
+    MovieCard, 
+    VueSlickCarousel,
+  },
   data() {
     return {
       movies: [],
+      settings: {
+        dots: true,
+        infinite: true,
+        slidesToShow: 9,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnDotsHover: true,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+      },
     };
   },
   async created() {

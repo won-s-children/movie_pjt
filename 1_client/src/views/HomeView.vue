@@ -4,6 +4,7 @@
     <YourMoviesVue v-if="isLoggedIn"/>
     <hr>
     <RecentMoviesVue />
+    <br>
     <hr>
     <LikesMoviesVue />
     <hr>

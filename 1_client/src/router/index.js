@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView'
 import MovieView from '../views/MovieView'
 import WishListView from '../views/WishListView'
-import TheaterView from '../views/TheaterView'
 import SignupView from '../views/SignupView'
 import LoginView from '../views/LoginView'
 import MovieDetailView from '../components/MovieDetail'
@@ -30,11 +29,6 @@ const routes = [
     path: '/wishlist',
     name: 'wishlist',
     component: WishListView
-  },
-  {
-    path: '/theater',
-    name: 'theater',
-    component: TheaterView
   },
   {
     path: '/signup',

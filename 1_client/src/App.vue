@@ -1,18 +1,28 @@
 <template>
   <div id="app">
     <nav v-if="!isLoggedIn">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/movie">전체 영화</router-link> |
-      <router-link to="/theater">영화관 소식</router-link> |
-      <router-link to="/signup">회원가입</router-link> | 
-      <router-link to="/login">로그인</router-link>
+      <div class="nav-design">
+        <div class="nav-left">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/movie">전체 영화</router-link>
+        </div>
+        <div class="nav-right">
+          <router-link to="/signup">회원가입</router-link> | 
+          <router-link to="/login">로그인</router-link>
+        </div>
+      </div>
     </nav>
     <nav v-if="isLoggedIn">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/movie">전체 영화</router-link> |
-      <router-link to="/wishlist">내가 찜한 영화</router-link> |
-      <router-link to="/theater">영화관 소식</router-link> |
-      <a v-on:click="logOut" class="text">로그아웃</a>
+      <div class="nav-design">
+        <div class="nav-left">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/movie">전체 영화</router-link>
+        </div>
+        <div class="nav-right">
+          <router-link to="/wishlist">내가 찜한 영화</router-link> |
+          <a v-on:click="logOut" class="text">로그아웃</a>
+        </div>
+      </div>
     </nav>
     <router-view/>
   </div>
@@ -60,12 +70,25 @@ nav a {
   /* text-decoration-line: underline; */
   background-color: rgb(181, 188, 255);
   text-decoration: none;
+  
 }
 
 nav a.router-link-exact-active {
   color: #f3f7fc;
   background-color: rgb(181, 188, 255);
   
+}
+
+.nav-design {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-left {
+  text-align: left;
+}
+.nav-right {
+  text-align: right;
 }
 
 .text {
