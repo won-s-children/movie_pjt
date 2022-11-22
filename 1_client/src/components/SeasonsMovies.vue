@@ -4,7 +4,7 @@
     <p>겨울에 온 가족과 볼 영화는?! ❄</p>
     <ul class="slider">
       <div class="slides">
-        <li v-for="movie in seasonsmovies" v-bind:key="movie.id">
+        <li v-for="movie in seasonsmovies" v-bind:key="movie.id" class="movie-list">
           <SeasonMovieCard
             v-bind:posterPath="movie.poster_path"
             v-bind:movieId="movie.id"
@@ -58,6 +58,10 @@ export default {
 * {
     box-sizing: border-box;
   }
+
+  h3{
+  margin-top: 30px;
+  }
   .slider {
     width: 100vw;
     text-align: center;
@@ -88,5 +92,9 @@ export default {
     overflow: hidden;
   }
   
+  .movie-list{
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
   
 </style>

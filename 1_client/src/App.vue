@@ -43,13 +43,14 @@ export default {
   padding-left: 0;
   text-align: center;
   font-family: 'Nanum Gothic', sans-serif;
-  
+  background-color: #ECEEFF;
 }
 nav {
-  padding: 20px;
-  background-color: rgb(151, 206, 231);
+  padding: 25px;
+  /* background-color: rgb(151, 206, 231); */
+  background-color: rgb(181, 188, 255);
   text-align: center;
-  margin-bottom:30px;
+  /* margin-bottom:30px; */
   
 }
 
@@ -57,11 +58,13 @@ nav a {
   font-weight: bold;
   color: #1b2c3d;
   /* text-decoration-line: underline; */
+  background-color: rgb(181, 188, 255);
   text-decoration: none;
 }
 
 nav a.router-link-exact-active {
-  color: #dfebf8;
+  color: #f3f7fc;
+  background-color: rgb(181, 188, 255);
   
 }
 

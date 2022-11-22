@@ -9,11 +9,11 @@
           <li class="text-pad">개봉일자: {{ movie?.release_date }}</li>
           <li class="text-pad">평점: {{ movie?.vote_average }}</li>
           <li class="text-pad">유저평점: {{ total_vote }}</li>
-          <li v-if="movieLikeFlag" class="text-pad"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
+          <li v-if="movieLikeFlag" class="text-pad-color"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
           <li v-else class="text-pad"><b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon></li>
           <li><b-button pill v-on:click="goYoutube">예고편</b-button></li>
         </ul>
-        <p>{{ movie?.overview }}</p>
+        <p class="overview">{{ movie?.overview }}</p>
       </div>
     </div>
     <!-- 댓글입력 폼 -->
@@ -206,8 +206,10 @@ export default {
 
 <style>
 .detailwrap{
+  margin-top: 30px;
   display: flex;
-  background-color: rgb(221, 235, 245);
+  /* background-color: rgb(221, 235, 245); */
+  background-color: #ECEEFF;
 }
 .detailwrap img{
   height: 500px;
@@ -218,9 +220,22 @@ export default {
   padding: 10px;
 }
 .text-pad {
+  text-align: left;
   padding-right: 20px;
   font-weight: bold;
 }
+
+.text-pad-color{
+  text-align: left;
+  padding-right: 20px;
+  font-weight: bold;
+  color:red;
+}
+
+.overview{
+  text-align: left;
+}
+
 .form-btn {
   width: 40px;
 }

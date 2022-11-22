@@ -51,6 +51,7 @@ export default {
 }
 
 h1{
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 

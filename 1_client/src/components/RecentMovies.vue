@@ -3,7 +3,7 @@
     <h3>현재 상영중인 영화</h3>
     <ul class="slider">
       <div class="slides">
-        <li v-for="movie in movies" v-bind:key="movie.id">
+        <li v-for="movie in movies" v-bind:key="movie.id" class="movie-list">
           <MovieCard
             v-bind:title="movie.title"
             v-bind:posterPath="movie.poster_path"
@@ -48,6 +48,10 @@ export default {
 * {
     box-sizing: border-box;
   }
+  h3{
+    margin-top: 30px;
+    margin-bottom:40px;
+  }
   .slider {
     width: 100vw;
     text-align: center;
@@ -76,5 +80,9 @@ export default {
     scroll-padding-right: 20px;
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  .movie-list{
+    margin-bottom:30px;
   }
 </style>

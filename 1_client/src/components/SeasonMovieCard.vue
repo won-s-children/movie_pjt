@@ -2,7 +2,7 @@
   <div>
     <router-link :to="{ name: 'moviedetail', params: { id: movieId } }">
       <img v-bind:src="movieImgURL" alt="movieImg" height="300" />
-      <div>{{title}}</div>
+      <div class="title">{{title}}</div>
     </router-link>
   </div>
 </template>
@@ -18,6 +18,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.title{
+
+}
+
 
 </style>

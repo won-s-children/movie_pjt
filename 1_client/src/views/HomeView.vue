@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>112의 Home</h3>
+    <h3>💜 112의 Home 💜</h3>
     <YourMoviesVue v-if="isLoggedIn"/>
     <hr>
     <RecentMoviesVue />
@@ -32,6 +32,9 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+h3{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 </style>

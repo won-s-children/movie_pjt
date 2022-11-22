@@ -1,9 +1,9 @@
 <template>
   <div>
     <img v-bind:src="movieImgURL" alt="movieImg" height="300" />
-    <div>{{title}}</div>
-    <div>{{overview}}</div>
-    <div>{{releaseDate}}</div>
+    <div class="title">{{title}}</div>
+    <div class="overview">{{overview}}</div>
+    <div class="releasedate">{{releaseDate}}</div>
   </div>
 </template>
 
@@ -20,5 +20,16 @@ export default {
 </script>
 
 <style>
+.title{
+  margin-top:10px;
+}
+
+.overview{
+
+}
+
+.releasedate{
+
+}
 
 </style>

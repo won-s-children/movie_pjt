@@ -113,7 +113,10 @@ export default {
 
 
 <style scoped>
+
 .big_box{
+  /* background-color: rgb(221, 232, 248); */
+  background-color: #ECEEFF;
   text-align: center;
 }
 #container{
@@ -131,12 +134,14 @@ export default {
   /* border-radius: 50px; */
   /* border: 1px solid #000; */
   margin-bottom: 50px;
-  padding-top:20px;
-  padding-bottom:20px;
+  /* padding-top:20px;
+  padding-bottom:20px; */
+  padding:20px;
 }
 
 .card:hover{
-  background-color: rgb(158, 211, 229);
+  /* background-color: rgb(133, 140, 194); */
+  background-color: #B0A3E9;
 }
 
 .box {
