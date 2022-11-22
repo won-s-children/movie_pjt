@@ -19,8 +19,17 @@ export default {
 </script>
 
 <style scoped>
-.title{
+.movie-list div a{
+  text-decoration: none;
+  color: black;
+}
 
+.movie-list div a img {
+  transition: all 0.2s linear;
+}
+
+.movie-list div a:hover img{
+  transform: scale(1.2);
 }
 
 
