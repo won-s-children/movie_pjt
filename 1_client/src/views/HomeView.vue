@@ -4,12 +4,13 @@
     <h3 v-else>💜 Welcome To 112 Film 💜</h3>
     <img src="..\src\assets\112.png" height="150" class="logo_img">
     <br>
-    <YourMoviesVue v-if="isLoggedIn"/>
-    <br>
     <hr>
     <RecentMoviesVue />
     <br>
     <hr>
+    <YourMoviesVue v-if="isLoggedIn && flag"/>
+    <br v-if="isLoggedIn && flag">
+    <hr v-if="isLoggedIn && flag">
     <LikesMoviesVue />
     <hr>
     <SeasonsMoviesVue />
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import YourMoviesVue from '@/components/YourMovies.vue';
 import RecentMoviesVue from '@/components/RecentMovies.vue';
 import LikesMoviesVue from '@/components/LikesMovies.vue';
@@ -24,15 +26,39 @@ import SeasonsMoviesVue from '@/components/SeasonsMovies.vue';
 
 export default {
   components: { YourMoviesVue, RecentMoviesVue, LikesMoviesVue, SeasonsMoviesVue },
+  data(){
+    return{
+      flag: false
+    }
+  },
   computed:{
     isLoggedIn() {
       return this.$store.getters.isLogin
-    }
+    },
   },
   created() {
+    this.$store.dispatch('saveUserInfo', this.$store.state.token)
+    this.isFlag()
   },
   methods: {
-
+    isFlag() {
+      const URL = 'http://127.0.0.1:8000'
+      axios({
+        method: 'get',
+        url: `${URL}/api/v1/movies/`,
+      })
+        .then((res) => {
+          // 유저가 좋아요한 영화를 파악한다.
+          // console.log(res.data.filter(movie => movie.like_users.includes(this.$store.state.user_pk)))
+          const mymovies = res.data.filter(movie => movie.like_users.includes(this.$store.state.user_pk));
+          if(mymovies.length !== 0){
+            this.flag = true
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
   }
 };
 </script>

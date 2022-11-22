@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{ this.$store.state.username }} 님이 좋아하는 영화</h3>
+    <h3>{{ this.$store.state.username }} 님께 추천하는 영화</h3>
     <VueSlickCarousel v-bind="settings" v-if="movies.length">
       <div v-for="movie in movies" v-bind:key="movie.id" class="movie-list">
         <SeasonMovieCard
@@ -42,7 +42,6 @@ export default {
     };
   },
   created(){
-    this.$store.dispatch('saveUserInfo', this.$store.state.token)
     this.getRecommend()
   },
   methods:{
@@ -56,6 +55,7 @@ export default {
           // 유저가 좋아요한 영화를 파악한다.
           // console.log(res.data.filter(movie => movie.like_users.includes(this.$store.state.user_pk)))
           const mymovies = res.data.filter(movie => movie.like_users.includes(this.$store.state.user_pk));
+
           console.log(mymovies)
           var tmp = {}
           // 유저가 좋아요한 영화의 장르의 수를 구한다.
