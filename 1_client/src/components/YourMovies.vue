@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{ this.$store.state.username }} 님께 추천하는 영화</h3>
+    <h3>{{ this.$store.state.username }}님의 취향저격 영화</h3>
     <VueSlickCarousel v-bind="settings" v-if="movies.length">
       <div v-for="movie in movies" v-bind:key="movie.id" class="movie-list">
         <SeasonMovieCard
