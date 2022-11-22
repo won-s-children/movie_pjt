@@ -1,17 +1,45 @@
 <template>
   <div>
     <h3>{{ this.$store.state.username }} 님이 좋아하는 영화</h3>
+    <VueSlickCarousel v-bind="settings" v-if="movies.length">
+      <div v-for="movie in movies" v-bind:key="movie.id" class="movie-list">
+        <SeasonMovieCard
+          v-bind:title="movie.title"
+          v-bind:posterPath="movie.poster_path"
+          v-bind:releaseDate="movie.release_date"
+        />
+      </div>
+    </VueSlickCarousel>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SeasonMovieCard from "@/components/SeasonMovieCard.vue";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
+  components: {
+    SeasonMovieCard,
+    VueSlickCarousel,
+  },
   data(){
     return{
       movies: [],
-    }
+      settings: {
+        dots: true,
+        infinite: true,
+        slidesToShow: 9,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnDotsHover: true,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+      },
+    };
   },
   created(){
     this.$store.dispatch('saveUserInfo', this.$store.state.token)
@@ -89,5 +117,8 @@ export default {
 </script>
 
 <style>
-
+.movie-list {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 </style>
