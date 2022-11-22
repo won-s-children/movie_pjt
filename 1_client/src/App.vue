@@ -3,14 +3,14 @@
     <nav v-if="!isLoggedIn">
       <div class="nav-design">
         <div class="nav-left">
-          <router-link to="/">Home</router-link>&nbsp;&nbsp;|&nbsp;
+          <router-link to="/">Home</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/movie">전체 영화</router-link>
           <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
           <!-- <router-link to="/"><a href="#" class="logo-img"><img src="../src/assets/logo.png"></a></router-link> -->
           
         </div>
         <div class="nav-right">
-          <router-link to="/signup">회원가입</router-link>&nbsp;&nbsp;|&nbsp;
+          <router-link to="/signup">회원가입</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/login">로그인</router-link>
         </div>
       </div>
@@ -19,12 +19,12 @@
     <nav v-if="isLoggedIn">
       <div class="nav-design">
         <div class="nav-left">
-          <router-link to="/">Home</router-link> |
+          <router-link to="/">Home</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/movie">전체 영화</router-link>
           <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
         </div>
         <div class="nav-right">
-          <router-link to="/wishlist">내가 찜한 영화</router-link> |
+          <router-link to="/wishlist">내가 찜한 영화</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
           <a v-on:click="logOut" class="text">로그아웃</a>
         </div>
       </div>
