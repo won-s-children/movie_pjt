@@ -3,11 +3,11 @@
     <nav v-if="!isLoggedIn">
       <div class="nav-design">
         <div class="nav-left">
-          <router-link to="/">Home</router-link> |
+          <router-link to="/">Home</router-link>&nbsp;&nbsp;|&nbsp;
           <router-link to="/movie">전체 영화</router-link>
         </div>
         <div class="nav-right">
-          <router-link to="/signup">회원가입</router-link> | 
+          <router-link to="/signup">회원가입</router-link>&nbsp;&nbsp;|&nbsp;
           <router-link to="/login">로그인</router-link>
         </div>
       </div>
@@ -73,6 +73,10 @@ nav a {
   
 }
 
+nav a:hover{
+  color:white;
+}
+
 nav a.router-link-exact-active {
   color: #f3f7fc;
   background-color: rgb(181, 188, 255);
@@ -82,13 +86,16 @@ nav a.router-link-exact-active {
 .nav-design {
   display: flex;
   justify-content: space-between;
+  background-color: rgb(181, 188, 255);
 }
 
 .nav-left {
   text-align: left;
+  background-color: rgb(181, 188, 255);
 }
 .nav-right {
   text-align: right;
+  background-color: rgb(181, 188, 255);
 }
 
 .text {

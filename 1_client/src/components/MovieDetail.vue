@@ -18,9 +18,9 @@
     </div>
     <!-- 댓글입력 폼 -->
     <div class="reviewSet">
-      <input type="number" min="0" max="5" step="1" v-model="user_vote_average">
+      <input type="number" min="0" max="5" step="1" v-model="user_vote_average" class="vote-average">
       <b-col sm="10">
-        <b-form-input v-model="content" placeholder="평점과 댓글을 입력해주세요."></b-form-input>
+        <b-form-input v-model="content" placeholder="평점과 댓글을 입력해주세요." class="review-form"></b-form-input>
         <!-- <textarea name="" id="" cols="30" rows="2" v-model="content"></textarea> -->
       </b-col>
       <b-button variant="outline-secondary" v-on:click="createReview">등록</b-button>
@@ -28,10 +28,10 @@
     <!-- 댓글 리뷰리스트 폼 -->
     <b-list-group class="reviewList">
       <b-list-group-item class="review" v-for="(review, index) in reviews" v-bind:key="index">
-        <ul>
-          <li>{{ review.user.username }}  {{ review.user_vote_average}}점</li>
-          <li>{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
-          <li>{{ review.content }}</li>
+        <ul class="review-list">
+          <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
+          <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
+          <li class="review-content">{{ review.content }}</li>
         </ul>
         <b-button pill variant="outline-secondary" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</b-button>
       </b-list-group-item>
@@ -214,6 +214,7 @@ export default {
 .detailwrap img{
   height: 500px;
   padding: 20px;
+  margin-left: 100px;
 }
 .inforwrap{
   display: flex;
@@ -248,6 +249,7 @@ export default {
 }
 
 .card-container {
+  margin-top: 30px;
   width: 80vw;
   padding: 30px;
   align-items: center;
@@ -259,7 +261,7 @@ export default {
 }
 
 .review:hover {
-  background-color: rgb(221, 232, 248);
+  background-color: #e4e4f5;
 }
 .review {
   display: flex;
@@ -270,4 +272,42 @@ export default {
   border-color: grey;
   align-items: center;
 }
+
+.review-list{
+  background-color: #fff;
+}
+
+
+.review-list li{
+  background-color: #fff;
+  /* border: 1px solid #000; */
+}
+
+.review-list li:hover{
+  /* border: 1px solid #000; */
+}
+
+.username{
+  font-weight: bold;
+}
+
+.review-data{
+  font-size:small;
+  margin-bottom: 15px;
+}
+
+.reviewSet{
+  background-color: #ECEEFF;
+  margin-top: 50px;
+}
+
+.vote-average{
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 8px;
+  color:#727272;
+  border: solid 1px #afafaf;
+  background-color: #fff;
+}
+
 </style>

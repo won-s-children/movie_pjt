@@ -157,6 +157,31 @@ export default {
   display: flex;
   justify-content: center;
 }
+/* .b-pagination .page-link {
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #ccc; 
+}
+
+.page-item.active {
+  background-color: purple;
+  color: purple;
+}
+
+button .page-link {
+ z-index: 1;
+ color: rgb(231, 17, 17);
+ font-weight:bold;
+ background-color: #ac0a0a;
+ border-color: rgb(245, 22, 22);
+ 
+}
+
+.pagination .page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #fafafa; 
+  border-color: #ccc;
+} */
 
 
 </style>
