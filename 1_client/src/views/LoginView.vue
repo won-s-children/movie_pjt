@@ -1,4 +1,5 @@
 <template>
+  <div id="big_cont">
   <div id="container">
     <h1>💙 로그인 💙</h1>
     <form @submit.prevent="logIn">
@@ -17,6 +18,7 @@
       <b-button variant="light" type="submit">로그인</b-button>
     </form>
   </div>
+</div>
 </template>
 
 <script>
@@ -45,9 +47,21 @@ export default {
 
 
 <style scoped>
+
+#big_cont{
+  /* border: 1px solid #000; */
+  display: flex;
+  justify-content: center;
+}
+
 #container{
-  align-items: center;
   /* border: 3px solid rgb(244, 15, 15); */
+  margin-top: 50px;
+  align-items: center;
+  border: 3px solid rgb(196, 186, 204);
+  border-radius: 30px;
+  width:400px;
+  padding-bottom: 30px;
 }
 
 h1{
@@ -55,8 +69,13 @@ h1{
   margin-bottom: 40px;
 }
 
+label{
+  font-weight: 500;
+  margin-bottom: 8px;
+}
 
-#username{margin-bottom: 40px;}
-#password{margin-bottom: 40px;}
+
+#username{margin-bottom: 40px; border-radius: 5px;}
+#password{margin-bottom: 40px; border-radius: 5px;}
 
 </style>

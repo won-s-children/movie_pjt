@@ -1,4 +1,5 @@
 <template>
+  <div id="big_cont">
   <div id="container">
     <h1>💜 회원가입 💜</h1>
     <form @submit.prevent="signUp">
@@ -15,6 +16,7 @@
       <b-button variant="light" type="submit">회원가입</b-button>
     </form>
   </div>
+</div>
 </template>
 
 <script>
@@ -50,9 +52,21 @@ export default {
 </script>
 
 <style scoped>
-#container {
+
+
+#big_cont{
+  /* border: 1px solid #000; */
+  display: flex;
+  justify-content: center;
+}
+
+#container{
+  margin-top: 50px;
   align-items: center;
-  /* border: 3px solid rgb(244, 15, 15); */
+  border: 3px solid rgb(196, 186, 204);
+  border-radius: 30px;
+  width:400px;
+  padding-bottom: 30px;
 }
 
 h1 {
@@ -62,15 +76,13 @@ h1 {
 
 label {
   font-weight: 500;
+  margin-bottom: 8px;
 }
 
-#username {
-  margin-bottom: 40px;
-}
-#password1 {
-  margin-bottom: 40px;
-}
-#password2 {
-  margin-bottom: 40px;
-}
+#username{margin-bottom: 40px; border-radius: 5px;}
+#password1{margin-bottom: 40px; border-radius: 5px;}
+#password2{margin-bottom: 40px; border-radius: 5px;}
+
+
 </style>
+

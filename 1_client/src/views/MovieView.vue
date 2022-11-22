@@ -41,7 +41,7 @@ export default {
 
   data() {
     return {
-      perPage:12,
+      perPage:14,
       currentPage:1,
       // selectPage: 1,
       // pageCount: 20,
@@ -148,8 +148,9 @@ export default {
   /* border: 3px solid rgb(234, 18, 18); */
   display: grid;
   margin-top: 50px;
+  width:100%;
   /* padding: 20px; */
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .pagination{

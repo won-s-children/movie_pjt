@@ -5,6 +5,9 @@
         <div class="nav-left">
           <router-link to="/">Home</router-link>&nbsp;&nbsp;|&nbsp;
           <router-link to="/movie">전체 영화</router-link>
+          <a href="#" class="logo-img"><img src="../src/assets/logo.png"></a>
+          <!-- <router-link to="/"><a href="#" class="logo-img"><img src="../src/assets/logo.png"></a></router-link> -->
+          
         </div>
         <div class="nav-right">
           <router-link to="/signup">회원가입</router-link>&nbsp;&nbsp;|&nbsp;
@@ -12,11 +15,13 @@
         </div>
       </div>
     </nav>
+
     <nav v-if="isLoggedIn">
       <div class="nav-design">
         <div class="nav-left">
           <router-link to="/">Home</router-link> |
           <router-link to="/movie">전체 영화</router-link>
+          <a href="#" class="logo-img"><img src="../src/assets/logo.png"></a>
         </div>
         <div class="nav-right">
           <router-link to="/wishlist">내가 찜한 영화</router-link> |
@@ -56,7 +61,7 @@ export default {
   background-color: #ECEEFF;
 }
 nav {
-  padding: 25px;
+  padding: 15px 30px 15px 30px;
   /* background-color: rgb(151, 206, 231); */
   background-color: rgb(181, 188, 255);
   text-align: center;
@@ -78,8 +83,9 @@ nav a:hover{
 }
 
 nav a.router-link-exact-active {
-  color: #f3f7fc;
+  color: #ffffff;
   background-color: rgb(181, 188, 255);
+  font-weight: bold;
   
 }
 
@@ -92,14 +98,24 @@ nav a.router-link-exact-active {
 .nav-left {
   text-align: left;
   background-color: rgb(181, 188, 255);
+  color:#371b3d;
 }
 .nav-right {
   text-align: right;
   background-color: rgb(181, 188, 255);
+  color:#371b3d;
+  margin-top:15px;
 }
 
 .text {
   /* text-decoration-line: underline; */
   cursor: pointer;
+}
+
+.logo-img img{
+  z-index:5;
+  display: inline-block;
+  width:100px; 
+  margin-left: 750px;
 }
 </style>
