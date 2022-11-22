@@ -1,6 +1,8 @@
 <template>
   <div>
     <h3>💜 112의 Home 💜</h3>
+    <img src="..\src\assets\112.png" height="150">
+    <br>
     <YourMoviesVue v-if="isLoggedIn"/>
     <hr>
     <RecentMoviesVue />
