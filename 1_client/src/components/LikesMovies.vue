@@ -7,8 +7,35 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  
+  data(){
+    return{
+      movies:[]
+    }
+  },
+  created() {
+    this.getManyLikeMovies();
+  },
+  computed: {},
+  methods: {
+    getManyLikeMovies() {
+      const URL = "http://127.0.0.1:8000";
+      axios({
+        method: "get",
+        url: `${URL}/api/v1/movies/`,
+      })
+        .then((res) => {
+          // console.log(res.data.filter(movie => movie.season === "겨울" || movie.genres[0] === 10751))
+          this.movies = res.data.sort((a,b) => (b.like_users.length - a.like_users.length));
+          console.log(this.movies)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 }
 </script>
 

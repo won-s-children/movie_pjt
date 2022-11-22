@@ -7,6 +7,7 @@
           v-bind:title="movie.title"
           v-bind:posterPath="movie.poster_path"
           v-bind:releaseDate="movie.release_date"
+          v-bind:movieId="movie.id"
         />
       </div>
     </VueSlickCarousel>
