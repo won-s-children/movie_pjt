@@ -5,7 +5,7 @@
         <div class="nav-left">
           <router-link to="/">Home</router-link>&nbsp;&nbsp;|&nbsp;
           <router-link to="/movie">전체 영화</router-link>
-          <a href="#" class="logo-img"><img src="../src/assets/logo.png"></a>
+          <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
           <!-- <router-link to="/"><a href="#" class="logo-img"><img src="../src/assets/logo.png"></a></router-link> -->
           
         </div>
@@ -21,7 +21,7 @@
         <div class="nav-left">
           <router-link to="/">Home</router-link> |
           <router-link to="/movie">전체 영화</router-link>
-          <a href="#" class="logo-img"><img src="../src/assets/logo.png"></a>
+          <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
         </div>
         <div class="nav-right">
           <router-link to="/wishlist">내가 찜한 영화</router-link> |

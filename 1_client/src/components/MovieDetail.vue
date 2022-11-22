@@ -33,7 +33,7 @@
           <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
           <li class="review-content">{{ review.content }}</li>
         </ul>
-        <b-button pill variant="outline-secondary" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</b-button>
+        <b-button variant="outline-secondary" size="sm" class="deletebtn" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</b-button>
       </b-list-group-item>
     </b-list-group>
   </div>
@@ -308,6 +308,10 @@ export default {
   color:#727272;
   border: solid 1px #afafaf;
   background-color: #fff;
+}
+
+.deletebtn{
+  margin-left:30px;
 }
 
 </style>
