@@ -37,6 +37,7 @@
 
 <script>
 // import axios from "axios";
+import Swal from "sweetalert2";
 import AllMovieCard from '@/components/AllMovieCard';
 // import Paginate from 'vuejs-paginate';
 // Vue.component('paginate', Paginate)
@@ -89,7 +90,7 @@ export default {
       var tmp = this.$store.state.movies.filter(movie => movie.title.includes(this.searchWord))
       if(tmp.length === 0){
         this.movies = this.$store.state.movies;
-        alert("검색 결과가 없습니다.")
+        Swal.fire("검색 결과가 없습니다.")
       }else{
         this.movies = tmp
       }
@@ -213,4 +214,10 @@ button{
       color: white;
       border: white;
     }
+#swal2-title {
+  color:rgb(75, 82, 92);
+  background-color:rgb(180, 212, 240);
+  margin: 20px;
+  padding: 20px;
+}
 </style>

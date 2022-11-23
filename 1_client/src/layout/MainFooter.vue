@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <!-- <p>영화 추천 by 112</p> -->
-    <a href="https://github.com/won-s-children/movie_pjt">
+    <a href="https://github.com/won-s-children/movie_pjt" target = "_blank">
       <img src="./..\assets\github.png" height="25px">
     </a>
     <br>
@@ -17,6 +17,7 @@
 .footer {
   text-align: center;
   background-color: #ECEEFF;
+  margin-top: 30px;
 }
 .copy {
   font-style: italic;
