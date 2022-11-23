@@ -6,8 +6,8 @@
         <li class="review-content" v-if="flag">{{ review.content }}</li>
       </ul>
       <!-- <b-list-group-item class="reviewSet"> -->
-        <div class="reviewSet">
-        <div class="reviewSet" v-if="!flag">
+        <div class="change-form">
+        <div class="change-form" v-if="!flag">
           <input type="number" min="0" max="5" step="1" v-model="review_vote" class="vote-average">
           <input type="text" v-model="review_content" class="form-control">
         </div>
@@ -94,6 +94,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.change-form {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
 </style>

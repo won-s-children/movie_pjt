@@ -325,11 +325,15 @@ export default {
   margin-right: 10%;
 }
 
-.review:hover {
+/* .review:hover {
   background-color: #e4e4f5;
-}
+  text-align: center;
+  justify-content: center;
+} */
 .review {
   display: flex;
+  /* justify-items: center; */
+  /* text-align: center; */
 }
 .content-form {
   border: 1px solid;
@@ -340,16 +344,18 @@ export default {
 
 .review-list {
   background-color: #fff;
+  /* text-align: center; */
+  padding: 0px;
 }
 
 .review-list li {
   background-color: #fff;
+  /* text-align: center; */
   /* border: 1px solid #000; */
 }
 
-.review-list li:hover {
-  /* border: 1px solid #000; */
-}
+/* .review-list li:hover {
+} */
 
 .username {
   font-weight: bold;
