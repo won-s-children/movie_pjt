@@ -15,6 +15,7 @@
     <hr>
     <SeasonsMoviesVue />
     <br><br>
+    <hr>
   </div>
 </template>
 
@@ -70,6 +71,7 @@ hr{
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
 
 h3{
   margin-top: 50px;
