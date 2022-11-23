@@ -26,4 +26,5 @@ class ReviewSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     class Meta:
         model = Review
-        fields = ('content', 'user_vote_average', 'created_at', 'user', 'movie','id')
+        # fields = ('content', 'user_vote_average', 'created_at', 'user', 'movie','id')
+        fields = '__all__'

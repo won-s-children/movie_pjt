@@ -3,6 +3,10 @@
       <ul class="review-list">
         <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
         <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
+        <li v-if="reviewLikeFlag && isLoggedIn"><b-icon icon="heart-fill" v-on:click="likeReview(review.id)"></b-icon></li>
+        <li v-if="!reviewLikeFlag && isLoggedIn"><b-icon icon="heart" v-on:click="likeReview(review.id)"></b-icon></li>
+        <li v-if="!isLoggedIn"><b-icon icon="heart" v-on:click="needLogin()"></b-icon></li>
+        <li>{{ reviewLikeCnt }}</li>
         <li class="review-content" v-if="flag">{{ review.content }}</li>
       </ul>
       <!-- <b-list-group-item class="reviewSet"> -->
@@ -32,12 +36,61 @@ export default {
         flag: true,
         review_content: '',
         review_vote: 0,
+        reviewLikeFlag: false,
+        reviewLikeCnt: 0,
     }
   },
   computed:{
-
+    isLoggedIn() {
+      return this.$store.getters.isLogin;
+    }
+  },
+  created(){
+    this.chkReviewLike(this.review.id)
   },
   methods:{
+    chkReviewLike(review_pk){
+        axios({
+        method: "get",
+        url: `${API_URL}/api/v1/reviews/${review_pk}/`,
+        headers: {
+          Authorization: `Token ${this.$store.state.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res.data.like_users)
+          if(res.data.like_users.includes(this.$store.state.user_pk)){
+            this.reviewLikeFlag = true
+          }
+          this.reviewLikeCnt = res.data.like_users.length
+
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    needLogin() {
+      alert("로그인이 필요한 기능입니다.");
+    },
+    likeReview(review_pk) {
+      axios({
+        method: "post",
+        url: `${API_URL}/api/v1/reviews/${review_pk}/likes/`,
+        headers: {
+          Authorization: `Token ${this.$store.state.token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res)
+          // this.getMovieLike()
+        //   console.log(this.movie);
+          this.reviewLikeFlag = !this.reviewLikeFlag;
+          this.chkReviewLike(review_pk)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     chgUpdate(content, vote){
       this.flag = !this.flag
       this.review_content = content
@@ -52,7 +105,10 @@ export default {
     delReview(review_pk) {
       axios({
         method: 'DELETE',
-        url: `${API_URL}/api/v1/reviews/${review_pk}/`
+        url: `${API_URL}/api/v1/reviews/${review_pk}/`,
+        headers: {
+          Authorization: `Token ${this.$store.state.token}`
+        }
       })
         .then(() => {
           // console.log(res.data)

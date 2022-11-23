@@ -21,7 +21,7 @@ class Movie(models.Model):
 
 class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_review')
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_review', blank=True)
     #  related_name
     #  reviews = ReviewSerializer(many=True, read_only=True)
     movie = models.ForeignKey("Movie", related_name="reviews", on_delete=models.CASCADE)
