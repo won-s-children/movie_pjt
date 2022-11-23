@@ -1,18 +1,22 @@
 <template>
     <b-list-group-item>
-        <ul class="review-list">
-          <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
-          <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
-          <li class="review-content" v-if="flag">{{ review.content }}</li>
-          <li class="review-content" v-if="!flag">
-            <input type="number" min="0" max="5" step="1" v-model="review_vote" class="vote-average">
-            <input type="text" v-model="review_content">
-          </li>
-        </ul>
-        <b-button variant="outline-secondary" size="sm" class="deletebtn" v-on:click="chgUpdate(review.content, review.user_vote_average)" v-show="checkUser(review.user.username)" v-if="flag">수정</b-button>
-        <b-button variant="outline-secondary" size="sm" class="deletebtn" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)" v-if="flag">삭제</b-button>
-        <b-button variant="outline-secondary" size="sm" class="deletebtn" v-on:click="putReview(review.id)" v-if="!flag">수정 등록</b-button>
-        <b-button variant="outline-secondary" size="sm" class="deletebtn" v-on:click="chgUpdate(null ,0)" v-if="!flag">취소</b-button>
+      <ul class="review-list">
+        <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
+        <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
+        <li class="review-content" v-if="flag">{{ review.content }}</li>
+      </ul>
+      <!-- <b-list-group-item class="reviewSet"> -->
+        <div class="reviewSet">
+        <div class="reviewSet" v-if="!flag">
+          <input type="number" min="0" max="5" step="1" v-model="review_vote" class="vote-average">
+          <input type="text" v-model="review_content" class="form-control">
+        </div>
+        <b-button variant="outline-secondary" class="deletebtn" v-on:click="chgUpdate(review.content, review.user_vote_average)" v-show="checkUser(review.user.username)" v-if="flag">수정</b-button>
+        <b-button variant="outline-secondary" class="deletebtn" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)" v-if="flag">삭제</b-button>
+        <b-button variant="outline-secondary" class="deletebtn" v-on:click="putReview(review.id)" v-if="!flag">수정 등록</b-button>
+        <b-button variant="outline-secondary" class="deletebtn" v-on:click="chgUpdate(null ,0)" v-if="!flag">취소</b-button>
+      </div>
+        <!-- </b-list-group-item> -->
     </b-list-group-item>
 </template>
 

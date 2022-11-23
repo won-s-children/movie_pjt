@@ -140,7 +140,9 @@ form{
 <style>
 #swal2-title {
   color:rgb(75, 82, 92);
-  background-color:rgb(190, 217, 240);
+  background-color:rgb(180, 212, 240);
+  margin: 20px;
+  padding: 20px;
 }
 
 #input-live-feedback{

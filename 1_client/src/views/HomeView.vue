@@ -14,6 +14,7 @@
     <LikesMoviesVue />
     <hr>
     <SeasonsMoviesVue />
+    <br><br>
   </div>
 </template>
 

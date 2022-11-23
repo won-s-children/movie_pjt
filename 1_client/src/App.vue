@@ -30,12 +30,15 @@
       </div>
     </nav>
     <router-view/>
+    <MainFooter></MainFooter>
   </div>
 </template>
 
 <script>
+import MainFooter from './layout/MainFooter';
 export default {
   components: {
+    MainFooter,
   },
   computed:{
     isLoggedIn() {
