@@ -9,21 +9,30 @@
           <li class="text-pad">개봉일자: {{ movie?.release_date }}</li>
           <li class="text-pad">평점: {{ movie?.vote_average }}</li>
           <li class="text-pad">유저평점: {{ total_vote }}</li>
-          <li v-if="movieLikeFlag" class="text-pad-color"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
-          <li v-else class="text-pad"><b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon></li>
+          <li v-if="movieLikeFlag && isLoggedIn" class="text-pad-color"><b-icon icon="heart-fill" v-on:click="likeMovie(movie?.id)"></b-icon></li>
+          <li v-if="!movieLikeFlag && isLoggedIn" class="text-pad"><b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon></li>
+          <li v-if="!isLoggedIn" class="text-pad"><b-icon icon="heart" v-on:click="needLogin()"></b-icon></li>
           <li><b-button pill v-on:click="goYoutube">예고편</b-button></li>
         </ul>
         <p class="overview">{{ movie?.overview }}</p>
       </div>
     </div>
     <!-- 댓글입력 폼 -->
-    <div class="reviewSet">
+    <div class="reviewSet" v-if="isLoggedIn">
       <input type="number" min="0" max="5" step="1" v-model="user_vote_average" class="vote-average">
       <b-col sm="10">
         <b-form-input v-model="content" placeholder="평점과 댓글을 입력해주세요." class="review-form"></b-form-input>
         <!-- <textarea name="" id="" cols="30" rows="2" v-model="content"></textarea> -->
       </b-col>
       <b-button variant="outline-secondary" v-on:click="createReview">등록</b-button>
+    </div>
+    <div class="reviewSet" v-if="!isLoggedIn">
+      <input type="number" min="0" max="5" step="1" v-model="user_vote_average" class="vote-average" readonly>
+      <b-col sm="10">
+        <b-form-input readonly v-model="content" placeholder="로그인이 필요한 기능입니다." class="review-form"></b-form-input>
+        <!-- <textarea name="" id="" cols="30" rows="2" v-model="content"></textarea> -->
+      </b-col>
+      <b-button variant="outline-secondary" v-on:click="needLogin()">등록</b-button>
     </div>
     <!-- 댓글 리뷰리스트 폼 -->
     <b-list-group class="reviewList">
@@ -56,6 +65,9 @@ export default {
     this.getMovieReviews()
   },
   computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLogin
+    },
     movieImgURL() {
       const url = "https://themoviedb.org/t/p/w600_and_h900_bestv2"+this.movie?.poster_path
       return url
@@ -74,6 +86,9 @@ export default {
     },
   },
   methods: {
+    needLogin(){
+      alert("로그인이 필요한 기능입니다.")
+    },
     chgUpdate(){
       this.flag = !this.flag
     },
