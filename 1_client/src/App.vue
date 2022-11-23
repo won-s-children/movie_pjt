@@ -112,9 +112,13 @@ nav a.router-link-exact-active {
   cursor: pointer;
 }
 
+.logo-img{
+  /* display: flex; */
+  justify-content: center;
+}
+
 .logo-img img{
-  z-index:5;
-  display: inline-block;
+  /* display: inline-block; */
   width:100px; 
   margin-left: 750px;
 }
