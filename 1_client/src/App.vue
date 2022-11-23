@@ -136,4 +136,8 @@ nav a.router-link-exact-active {
   width:100px; 
   margin-left: 750px;
 }
+
+Footer{
+
+}
 </style>

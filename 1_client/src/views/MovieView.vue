@@ -10,9 +10,13 @@
   <div class="big_box">
     <h3>💜 112 Film의 전체영화 💜</h3>
   <div>
-    <input type="text" v-model="searchWord">
-    <button v-on:click="searching(true)">검색</button>
-    <button v-on:click="searching(false)">초기화</button>
+    <!-- <input type="text" v-model="searchWord"> -->
+    
+    <b-form-input placeholder="보고싶은 영화를 검색해보세요" size="md" v-model="searchWord" class="search-movie"></b-form-input>
+    <button v-on:click="searching(true)" class="search">&#128269;</button>
+    <button v-on:click="searching(false)" class="clear">&#128260;</button>
+    
+    
     <div class="overflow-auto">
       <ul class="box">
         <li v-for="perPageMovie in perPageMovies" v-bind:key="perPageMovie.id">
@@ -116,7 +120,7 @@ export default {
 
 
 <style scoped>
-h3{margin-top:50px;}
+h3{margin-top:50px; margin-bottom:30px;}
 .big_box{
   /* border: 3px solid #000; */
   /* background-color: rgb(221, 232, 248); */
@@ -130,6 +134,31 @@ h3{margin-top:50px;}
   /* margin-top:0px; */
 }
 
+.search-movie{
+  display: inline-block;
+  width:400px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 60px;
+}
+
+button{
+  /* width:60px; */
+  /* text-align: center;
+  border-radius: 10px; */
+  font-size: 20px;
+}
+
+.search{
+  /* width:40px;
+  text-align: center;
+  border-radius: 10px */
+  border:none;
+}
+
+.clear{
+  border:none;
+}
 
 .card {
   /* border: 1px solid #000; */
@@ -173,4 +202,15 @@ h3{margin-top:50px;}
   display: flex;
   justify-content: center;
 }
+
+::v-deep .pagination  .page-link {
+      background: rgb(221, 224, 255) ;
+      color: black;
+      /* border: #bdbdbd 1px solid; */
+    }
+::v-deep .pagination .active button{
+      background: #a89be2;
+      color: white;
+      border: white;
+    }
 </style>
