@@ -4,10 +4,10 @@
 # server/
 python -m venv venv
 source venv/Scripts/activate
-pip install -r requirements
+pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
-python manage.py loaddata movies/fixtures/movie.json
+python manage.py loaddata movies/fixtures/movies.json
 python manage.py runserver
 
 # client/

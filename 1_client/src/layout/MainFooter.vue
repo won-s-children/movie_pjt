@@ -1,6 +1,12 @@
 <template>
   <div class="footer">
-    <p>영화 추천 by 112</p>
+    <!-- <p>영화 추천 by 112</p> -->
+    <a href="https://github.com/won-s-children/movie_pjt">
+      <img src="./..\assets\github.png" height="25px">
+    </a>
+    <br>
+    <p> 신지원 조한이 최원준 </p>
+    <em class="copy">© 2022 112 Film, ALL RIGHTS RESERVED</em>
   </div>
 </template>
 
@@ -10,6 +16,9 @@
 <style scoped>
 .footer {
   text-align: center;
-  background-color: lightgray;
+  background-color: #ECEEFF;
+}
+.copy {
+  font-style: italic;
 }
 </style>
