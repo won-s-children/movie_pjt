@@ -10,6 +10,9 @@
   <div class="big_box">
     <h3>💜 112 Film의 전체영화 💜</h3>
   <div>
+    <input type="text" v-model="searchWord">
+    <button v-on:click="searching(true)">검색</button>
+    <button v-on:click="searching(false)">초기화</button>
     <div class="overflow-auto">
       <ul class="box">
         <li v-for="perPageMovie in perPageMovies" v-bind:key="perPageMovie.id">
@@ -29,7 +32,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import AllMovieCard from '@/components/AllMovieCard';
 // import Paginate from 'vuejs-paginate';
 // Vue.component('paginate', Paginate)
@@ -42,18 +45,16 @@ export default {
 
   data() {
     return {
+      searchWord:'',
       perPage:14,
       currentPage:1,
       // selectPage: 1,
       // pageCount: 20,
-      // movies: [],
+      movies: [],
     }
   },
 
   computed: {
-    movies() {
-      return this.$store.state.movies;
-    },
     perPageMovies() {
       const newMovies = this.movies.slice(
         this.perPage * this.currentPage - this.perPage,
@@ -70,27 +71,28 @@ export default {
   },
 
   created() {
-    this.$store.dispatch("getMovies");
-    // this.getMovies()
+    this.$store.dispatch("getMovies")
+    this.getMovies()
   },
   methods: {
+    getMovies() {
+      this.movies = this.$store.state.movies;
+    },
+    searching(flag){
+      if(!flag){
+        this.searchWord = ''
+      }
+      var tmp = this.$store.state.movies.filter(movie => movie.title.includes(this.searchWord))
+      if(tmp.length === 0){
+        this.movies = this.$store.state.movies;
+        alert("검색 결과가 없습니다.")
+      }else{
+        this.movies = tmp
+      }
+    }
     // changePage: function (pageNum) {
     //             this.selectPage = pageNum
     //         },
-    getMovies() {
-      const URL = 'http://127.0.0.1:8000'
-      axios({
-        method: 'get',
-        url: `${URL}/api/v1/movies/`,
-      })
-        .then((res) => {
-          console.log(res.data)
-          this.movies = res.data
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      }
     }
  
   // async created() {
@@ -114,9 +116,7 @@ export default {
 
 
 <style scoped>
-
 h3{margin-top:50px;}
-
 .big_box{
   /* border: 3px solid #000; */
   /* background-color: rgb(221, 232, 248); */
@@ -173,5 +173,4 @@ h3{margin-top:50px;}
   display: flex;
   justify-content: center;
 }
-
 </style>

@@ -2,8 +2,8 @@ from .models import Movie, Review
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-# from rest_framework.decorators import permission_classes
-# from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 from rest_framework import status
 from django.shortcuts import get_object_or_404, get_list_or_404
@@ -22,8 +22,7 @@ def movie_list(request):
         serializer = MovieListSerializer(movies, many=True)
         return Response(serializer.data)
 
-@api_view(['GET', 'DELETE', 'PUT'])
-# @permission_classes([IsAuthenticated])
+@api_view(['GET'])
 def movie_detail(request, movie_pk):
     movie = Movie.objects.get(pk=movie_pk)
     # article = get_object_or_404(Article, pk=article_pk)
@@ -42,6 +41,7 @@ def review_list(request):
         return Response(serializer.data)
 
 @api_view(['GET', 'DELETE', 'PUT'])
+@permission_classes([IsAuthenticated])
 def review_detail(request, review_pk):
     # comment = Comment.objects.get(pk=comment_pk)
     review = get_object_or_404(Review, pk=review_pk)
@@ -65,7 +65,6 @@ def review_detail(request, review_pk):
 def review_create(reqeust, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     serializer = ReviewSerializer(data=reqeust.data)
-    print(reqeust.user)
     if serializer.is_valid(raise_exception=True):
         serializer.save(movie=movie, user=reqeust.user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -73,6 +72,7 @@ def review_create(reqeust, movie_pk):
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def likes(request, movie_pk):
     if request.user.is_authenticated:
         movie = Movie.objects.get(pk=movie_pk)
