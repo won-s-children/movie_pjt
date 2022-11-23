@@ -60,13 +60,19 @@ export default {
   list-style: none;
   padding-left: 0;
   text-align: center;
-  font-family: 'Nanum Gothic', sans-serif;
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  /* font-family: 'PT Sans', sans-serif; */
+  /* font-family: 'Cabin', sans-serif; */
+  /* font-family: 'Noto Sans KR', sans-serif; */
+  /* font-family: 'Gowun Dodum', sans-serif; */
+  font-family: 'IBM Plex Sans KR', sans-serif;
   background-color: #ECEEFF;
 }
 nav {
   padding: 15px 30px 15px 30px;
   /* background-color: rgb(151, 206, 231); */
   background-color: rgb(181, 188, 255);
+  /* background-color: rgb(220, 195, 252); */
   text-align: center;
   /* margin-bottom:30px; */
   
@@ -77,6 +83,7 @@ nav a {
   color: #1b2c3d;
   /* text-decoration-line: underline; */
   background-color: rgb(181, 188, 255);
+  /* background-color: rgb(220, 195, 252); */
   text-decoration: none;
   
 }
@@ -88,6 +95,7 @@ nav a:hover{
 nav a.router-link-exact-active {
   color: #ffffff;
   background-color: rgb(181, 188, 255);
+  /* background-color: rgb(220, 195, 252); */
   font-weight: bold;
   
 }
@@ -96,16 +104,19 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: space-between;
   background-color: rgb(181, 188, 255);
+  /* background-color: rgb(220, 195, 252); */
 }
 
 .nav-left {
   text-align: left;
   background-color: rgb(181, 188, 255);
+  /* background-color: rgb(220, 195, 252); */
   color:#371b3d;
 }
 .nav-right {
   text-align: right;
   background-color: rgb(181, 188, 255);
+  /* background-color: rgb(220, 195, 252); */
   color:#371b3d;
   margin-top:15px;
 }

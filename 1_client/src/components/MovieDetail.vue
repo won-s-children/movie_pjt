@@ -377,6 +377,7 @@ export default {
 .deletebtn {
   margin-left: 3px;
 }
+
 #swal2-title {
   color: rgb(75, 82, 92);
   background-color: rgb(180, 212, 240);

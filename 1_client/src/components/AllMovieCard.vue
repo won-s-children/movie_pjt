@@ -17,6 +17,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+a img{
+  width:100%;
+  height:auto;
+  transition: all 0.1s linear;
+}
 
+a:hover img{
+  transform: scale(1.1);
+  border-radius: 10px;
+  border: 4px solid #818ac0;
+  /* border: 4px solid #A35498; */
+}
 </style>

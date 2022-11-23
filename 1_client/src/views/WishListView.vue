@@ -1,5 +1,6 @@
 <template>
   <div class="big_box">
+    <h3>💜 {{ this.$store.state.username }}님이 찜한 영화 💜</h3>
   <div>
     <div class="overflow-auto">
       <ul class="box">
@@ -73,6 +74,8 @@ export default {
 </script>
 
 <style scoped>
+h3{margin-top:50px;}
+
 .big_box{
   /* background-color: rgb(221, 232, 248); */
   background-color: #ECEEFF;
@@ -96,11 +99,14 @@ export default {
   /* padding-top:20px;
   padding-bottom:20px; */
   padding:20px;
+  border:0;
+  background-color: #ECEEFF;
 }
+
 
 .card:hover{
   /* background-color: rgb(133, 140, 194); */
-  background-color: #B0A3E9;
+  /* background-color: #B0A3E9; */
 }
 
 .box {

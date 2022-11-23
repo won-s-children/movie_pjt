@@ -8,6 +8,7 @@
       </li>
     </ul> -->
   <div class="big_box">
+    <h3>💜 112 Film의 전체영화 💜</h3>
   <div>
     <div class="overflow-auto">
       <ul class="box">
@@ -114,7 +115,10 @@ export default {
 
 <style scoped>
 
+h3{margin-top:50px;}
+
 .big_box{
+  /* border: 3px solid #000; */
   /* background-color: rgb(221, 232, 248); */
   background-color: #ECEEFF;
   text-align: center;
@@ -125,6 +129,8 @@ export default {
   /* background-color: rgb(30, 30, 30); */
   /* margin-top:0px; */
 }
+
+
 .card {
   /* border: 1px solid #000; */
   /* width: 70%; */
@@ -134,14 +140,23 @@ export default {
   /* border-radius: 50px; */
   /* border: 1px solid #000; */
   margin-bottom: 50px;
-  /* padding-top:20px;
-  padding-bottom:20px; */
   padding:20px;
+  background-color: #ECEEFF;
+  font-size: 0;
+  border:0;
+}
+
+.card a {
+  width:auto;
+  padding:0px;
+  margin:0px;
+  background-color: #fff;
+
 }
 
 .card:hover{
   /* background-color: rgb(133, 140, 194); */
-  background-color: #B0A3E9;
+  /* background-color: #B0A3E9; */
 }
 
 .box {
@@ -158,31 +173,5 @@ export default {
   display: flex;
   justify-content: center;
 }
-/* .b-pagination .page-link {
-  color: #000; 
-  background-color: #fff;
-  border: 1px solid #ccc; 
-}
-
-.page-item.active {
-  background-color: purple;
-  color: purple;
-}
-
-button .page-link {
- z-index: 1;
- color: rgb(231, 17, 17);
- font-weight:bold;
- background-color: #ac0a0a;
- border-color: rgb(245, 22, 22);
- 
-}
-
-.pagination .page-link:focus, .page-link:hover {
-  color: #000;
-  background-color: #fafafa; 
-  border-color: #ccc;
-} */
-
 
 </style>
