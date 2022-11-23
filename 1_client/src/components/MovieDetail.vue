@@ -26,6 +26,7 @@
         <p class="overview">{{ movie?.overview }}</p>
       </div>
     </div>
+    
     <!-- 댓글입력 폼 -->
     <div class="reviewSet" v-if="isLoggedIn">
       <input
@@ -300,6 +301,7 @@ export default {
 
 .overview {
   text-align: left;
+  margin-right: 110px;
 }
 
 .form-btn {
@@ -389,5 +391,12 @@ export default {
   background-color: rgb(180, 212, 240);
   margin: 10px;
   padding: 20px;
+}
+
+.back{
+  margin-bottom: 30px;
+  width: 50px;
+  border-radius: 10px;
+  text-align: center;
 }
 </style>

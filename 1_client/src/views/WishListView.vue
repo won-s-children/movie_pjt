@@ -3,14 +3,15 @@
     <h3>💜 {{ this.$store.state.username }}님이 찜한 영화 💜</h3>
   <div>
     <div class="overflow-auto">
-      <ul class="box">
+      <ul class="box" v-if="flag">
         <li v-for="perPageMovie in perPageMovies" v-bind:key="perPageMovie.id">
           <AllMovieCard class="card" v-bind:posterPath="perPageMovie.poster_path" 
             v-bind:movieId="perPageMovie.id"
           />
         </li>
       </ul>
-        <b-pagination class="pagination"
+      <p v-else>찜한 영화가 없습니다.<br> 관심있는 영화에 좋아요를 눌러주세요 😊</p>
+        <b-pagination v-if="flag" class="pagination"
         v-model="currentPage"
         :total-rows="rows"
         :per-page="perPage"
@@ -31,6 +32,7 @@ export default {
   },
      data(){
     return{
+      flag: false,
       perPage:14,
       currentPage:1,
       movies: [],
@@ -38,6 +40,8 @@ export default {
   },
   created(){
     this.getWishList()
+    this.$store.dispatch('saveUserInfo', this.$store.state.token)
+    this.isFlag()
   },
   computed:{
     perPageMovies() {
@@ -69,6 +73,24 @@ export default {
           console.log(err)
         })
     },
+    isFlag() {
+      const URL = 'http://127.0.0.1:8000'
+      axios({
+        method: 'get',
+        url: `${URL}/api/v1/movies/`,
+      })
+        .then((res) => {
+          // 유저가 좋아요한 영화를 파악한다.
+          // console.log(res.data.filter(movie => movie.like_users.includes(this.$store.state.user_pk)))
+          const mymovies = res.data.filter(movie => movie.like_users.includes(this.$store.state.user_pk));
+          if(mymovies.length !== 0){
+            this.flag = true
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
   }
 }
 </script>
@@ -87,6 +109,12 @@ h3{margin-top:50px;}
   /* background-color: rgb(30, 30, 30); */
   /* margin-top:0px; */
 }
+
+p{
+  margin-top:50px;
+  margin-bottom: 70px;
+}
+
 .card {
   /* border: 1px solid #000; */
   /* width: 70%; */
@@ -123,4 +151,16 @@ h3{margin-top:50px;}
   display: flex;
   justify-content: center;
 }
+
+::v-deep .pagination  .page-link {
+      background: rgb(221, 224, 255) ;
+      color: black;
+      /* border: #bdbdbd 1px solid; */
+    }
+::v-deep .pagination .active button{
+      background: #a89be2;
+      color: white;
+      border: white;
+    }
+
 </style>

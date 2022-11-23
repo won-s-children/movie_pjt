@@ -84,8 +84,11 @@ h3{
 	}
 	to {
 		transform: translate(0px,0px);
+    /* transform: rotate(720deg);
+    transform: rotate(45deg) */
 	}
 }
+
 
 .logo_img{
   animation: logo112 2s linear forwards;
