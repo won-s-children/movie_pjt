@@ -2,7 +2,8 @@
   <div>
     <h3 v-if="isLoggedIn">💜 {{ this.$store.state.username }}님의 Home 💜</h3>
     <h3 v-else>💜 Welcome To 112 Film 💜</h3>
-    <img src="..\src\assets\112.png" height="150" class="logo_img">
+    <a v-if="isLoggedIn" href="http://localhost:8080/wishlist"><img src="..\src\assets\112.png" height="150" class="logo_img"></a>
+    <a v-else href="http://localhost:8080/login"><img src="..\src\assets\112.png" height="150" class="logo_img"></a>
     <br>
     <hr>
     <RecentMoviesVue />

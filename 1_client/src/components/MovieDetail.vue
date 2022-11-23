@@ -26,7 +26,7 @@
         <p class="overview">{{ movie?.overview }}</p>
       </div>
     </div>
-    
+
     <!-- 댓글입력 폼 -->
     <div class="reviewSet" v-if="isLoggedIn">
       <input
@@ -399,4 +399,9 @@ export default {
   border-radius: 10px;
   text-align: center;
 }
+
+.list-group-item{
+  margin-bottom: 10px;
+}
+
 </style>
