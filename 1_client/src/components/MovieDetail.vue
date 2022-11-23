@@ -27,24 +27,21 @@
     </div>
     <!-- 댓글 리뷰리스트 폼 -->
     <b-list-group class="reviewList">
-      <b-list-group-item class="review" v-for="(review, index) in reviews" v-bind:key="index">
-        <ul class="review-list">
-          <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
-          <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
-          <li class="review-content">{{ review.content }}</li>
-        </ul>
-        <b-button variant="outline-secondary" size="sm" class="deletebtn" v-on:click="delReview(review.id)" v-show="checkUser(review.user.username)">삭제</b-button>
-      </b-list-group-item>
+      <ReviewItem class="review" v-for="(review, index) in reviews" v-bind:key="index" v-bind:review="review"/>
     </b-list-group>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import ReviewItem from "@/components/ReviewItem.vue";
 
 const API_URL = 'http://127.0.0.1:8000'
 
 export default {
+  components: {
+    ReviewItem,
+  },
   data() {
     return {
       movie: null,
@@ -77,6 +74,9 @@ export default {
     },
   },
   methods: {
+    chgUpdate(){
+      this.flag = !this.flag
+    },
     likeMovie(movie_pk){
       axios({
         method: 'post',
