@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h1>커뮤니티 리스트 입니다.</h1>
+    <h3>💜 112 Film 자유게시판 💜</h3>
     <ul class="articleTitleWrap">
         <li class="articleId">번호</li>
         <li class="articleTitle">제목</li>
         <li class="articleUser">작성자</li>
         <li class="articleCreate">작성일</li>
     </ul>
-
     <hr>
 
     <ListArticle
@@ -16,7 +15,7 @@
         v-bind:article="article"
     />
     
-    <button>작성</button>
+    <b-button class="createbtn" variant="light" type="submit">글쓰기</b-button>
   </div>
 </template>
 
@@ -57,20 +56,40 @@ export default {
 }
 </script>
 
-<style>
-    .articleTitleWrap{
-        display: flex;
-    }
-    .articleId{
-        width: 10%;
-    }
-    .articleTitle{
-        width: 70;
-    }
-    .articleUser{
-        width: 10%;
-    }
-    .articleCreate{
-        width: 10%;
-    }
+<style scoped>
+
+h3{margin-top:50px; margin-bottom:60px;}
+hr{
+    display: inline-block;
+    width: 90%;
+}
+
+.articleTitleWrap{
+    display: flex;
+    justify-content:space-around;
+    /* border: 1px solid #000; */
+    margin:0;
+    padding: 10px 0 10px 0;
+}
+
+.articleTitleWrap li{
+    font-weight:bold;
+}
+.articleId{
+    width: 10%;
+}
+.articleTitle{
+    width: 70;
+}
+.articleUser{
+    width: 10%;
+}
+.articleCreate{
+    width: 10%;
+}
+
+.createbtn{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 </style>

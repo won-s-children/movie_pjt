@@ -29,14 +29,15 @@
 
     <!-- 댓글입력 폼 -->
     <div class="reviewSet" v-if="isLoggedIn">
-      <input
+      <b-form-spinbutton id="sb-inline" v-model="user_vote_average" min="0" max="5" step="1" inline></b-form-spinbutton>
+      <!-- <input
         type="number"
         min="0"
         max="5"
         step="1"
         v-model="user_vote_average"
         class="vote-average"
-      />
+      /> -->
       <b-col sm="10">
         <b-form-input
           v-model="content"
@@ -46,11 +47,11 @@
         <!-- <textarea name="" id="" cols="30" rows="2" v-model="content"></textarea> -->
       </b-col>
       <b-button variant="outline-secondary" v-on:click="createReview"
-        >등록</b-button
-      >
+        >등록</b-button>
     </div>
     <div class="reviewSet" v-if="!isLoggedIn">
-      <input
+      <a><b-form-spinbutton id="sb-inline" v-model="user_vote_average" v-on:click="needLogin()" inline readonly></b-form-spinbutton></a>
+    <!-- <input
         type="number"
         min="0"
         max="5"
@@ -58,7 +59,7 @@
         v-model="user_vote_average"
         class="vote-average"
         readonly
-      />
+      /> -->
       <b-col sm="10">
         <b-form-input
           readonly
@@ -97,6 +98,7 @@ export default {
   },
   data() {
     return {
+      value: 0,
       movie: null,
       user_vote_average: 0,
       content: "",
@@ -274,6 +276,7 @@ export default {
 .detailwrap {
   margin-top: 30px;
   display: flex;
+  justify-content: center;
   /* background-color: rgb(221, 235, 245); */
   background-color: #eceeff;
 }
@@ -372,7 +375,18 @@ export default {
 
 .reviewSet {
   background-color: #eceeff;
+  padding: 0 100px 0 100px;
   /* margin-top: 10px; */
+}
+
+
+.form-control{
+  display: inline-block;
+  width:500px;
+}
+
+bdi{
+  background-color: #fff;
 }
 
 .vote-average {
@@ -405,5 +419,14 @@ export default {
 .list-group-item{
   margin-bottom: 10px;
 }
+
+#sb-inline{
+  /* background-color: #fff; */
+}
+
+button svg{
+  background-color: #fff;
+}
+
 
 </style>

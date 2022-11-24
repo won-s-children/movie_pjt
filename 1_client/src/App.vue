@@ -6,11 +6,13 @@
           <router-link to="/">Home</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/movie">전체 영화</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <!-- 커뮤니티 추가부분 -->
-          <router-link to="/community">게시판</router-link>
-          <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
+          <router-link to="/community">자유게시판</router-link>
+          <!-- <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a> -->
           <!-- <router-link to="/"><a href="#" class="logo-img"><img src="../src/assets/logo.png"></a></router-link> -->
-          
         </div>
+
+        <div class="logoimg-wrap"><a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a></div>
+
         <div class="nav-right">
           <router-link to="/signup">회원가입</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/login">로그인</router-link>
@@ -24,9 +26,12 @@
           <router-link to="/">Home</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/movie">전체 영화</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <!-- 커뮤니티 추가부분 -->
-          <router-link to="/community">게시판</router-link>
-          <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
+          <router-link to="/community">자유게시판</router-link>
+          <!-- <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a> -->
         </div>
+
+        <div class="logoimg-wrap"><a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a></div>
+
         <div class="nav-right">
           <router-link to="/wishlist">내가 찜한 영화</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
           <a v-on:click="logOut" class="text">로그아웃</a>
@@ -116,6 +121,7 @@ nav a.router-link-exact-active {
   background-color: rgb(181, 188, 255);
   /* background-color: rgb(220, 195, 252); */
   color:#371b3d;
+  margin-top:15px;
 }
 .nav-right {
   text-align: right;
@@ -138,7 +144,11 @@ nav a.router-link-exact-active {
 .logo-img img{
   /* display: inline-block; */
   width:100px; 
-  margin-left: 750px;
+  /* margin-left: 750px; */
+}
+
+.logoimg-wrap{
+  background-color: rgb(181, 188, 255);
 }
 
 Footer{
