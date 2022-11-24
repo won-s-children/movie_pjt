@@ -1,9 +1,10 @@
 <template>
   <div>
-    <ul>
-        <li>제목: {{article.title}}</li>
-        <li>작성자: {{article.user.username}}</li>
+    <ul class="form-box">
+        <li class="name">작성자: {{article.user.username}}</li>
         <li>작성일: {{article.created_at | moment('YYYY-MM-DD')}}</li>
+        <br>
+        <li>제목: {{article.title}}</li>
         <li><p>{{ article.content }}</p></li>
     </ul>
     <b-button variant="outline-secondary" class="deletebtn" v-on:click="delArticle(article.id)" v-show="checkUser(article.user.username)" v-if="flag">삭제</b-button>
@@ -74,6 +75,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.form-box {
+  margin: 30px;
+  margin-right: 400px;
+  margin-left: 400px;
+  border: solid rgb(179, 175, 175);
+  border-width: 1px;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.name {
+  padding-top: 30px;
+}
 </style>
