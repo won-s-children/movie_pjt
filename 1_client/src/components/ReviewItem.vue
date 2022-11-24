@@ -12,7 +12,9 @@
 
       <div class="block2">
       <ul class="review-list">
-        <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
+        <li class="username">
+            {{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]
+        </li>
         <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
         <li class="review-content" v-if="flag">{{ review.content }}</li>
       </ul>
@@ -176,7 +178,6 @@ export default {
   justify-content: center;
   background-color: white;
 }
-
 .heart{
   background-color: white;
 }

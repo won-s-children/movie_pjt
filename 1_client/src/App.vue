@@ -4,7 +4,9 @@
       <div class="nav-design">
         <div class="nav-left">
           <router-link to="/">Home</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-          <router-link to="/movie">전체 영화</router-link>
+          <router-link to="/movie">전체 영화</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <!-- 커뮤니티 추가부분 -->
+          <router-link to="/community">게시판</router-link>
           <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
           <!-- <router-link to="/"><a href="#" class="logo-img"><img src="../src/assets/logo.png"></a></router-link> -->
           
@@ -20,7 +22,9 @@
       <div class="nav-design">
         <div class="nav-left">
           <router-link to="/">Home</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-          <router-link to="/movie">전체 영화</router-link>
+          <router-link to="/movie">전체 영화</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <!-- 커뮤니티 추가부분 -->
+          <router-link to="/community">게시판</router-link>
           <a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a>
         </div>
         <div class="nav-right">
