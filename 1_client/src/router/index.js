@@ -5,6 +5,7 @@ import MovieView from '../views/MovieView'
 import WishListView from '../views/WishListView'
 import SignupView from '../views/SignupView'
 import LoginView from '../views/LoginView'
+import CreateArticle from '../components/CreateArticle'
 import CommunityView from '../views/CommunityView'
 import MovieDetailView from '../components/MovieDetail'
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/createArticle',
+    name: 'createArticle',
+    component: CreateArticle
   },
 ]
 

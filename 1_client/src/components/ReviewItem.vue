@@ -3,9 +3,9 @@
     <div class="big-box">
       <div class="block1">
         <div>
-        <span v-if="reviewLikeFlag && isLoggedIn"><b-icon icon="heart-fill" class="heart heartfill" v-on:click="likeReview(review.id)"></b-icon></span>
-        <span v-if="!reviewLikeFlag && isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="likeReview(review.id)"></b-icon></span>
-        <span v-if="!isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="needLogin()"></b-icon></span>
+        <span v-if="reviewLikeFlag && isLoggedIn"><div class="heart" v-on:click="likeReview(review.id)">💖</div></span>
+        <span v-if="!reviewLikeFlag && isLoggedIn"><div class="heart" v-on:click="likeReview(review.id)">🤍</div></span>
+        <span v-if="!isLoggedIn"><div class="heart" v-on:click="needLogin()">🤍</div></span>
         <span class="review-cnt">{{ reviewLikeCnt }}</span>
       </div>
       </div>
@@ -21,9 +21,9 @@
       </div>
       
       <div class="heart-wrap">
-        <span v-if="reviewLikeFlag && isLoggedIn"><b-icon icon="heart-fill" class="heart heartfill" v-on:click="likeReview(review.id)"></b-icon></span>
-        <span v-if="!reviewLikeFlag && isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="likeReview(review.id)"></b-icon></span>
-        <span v-if="!isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="needLogin()"></b-icon></span>
+        <span v-if="reviewLikeFlag && isLoggedIn"><div class="heart" v-on:click="likeReview(review.id)">💖</div></span>
+        <span v-if="!reviewLikeFlag && isLoggedIn"><div class="heart" v-on:click="likeReview(review.id)">🤍</div></span>
+        <span v-if="!isLoggedIn"><div class="heart" v-on:click="needLogin()">🤍</div></span>
         <span class="review-cnt">{{ reviewLikeCnt }}</span>
       </div>
     </div>
@@ -203,7 +203,7 @@ export default {
 .big-box{
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: white;
 }
 
 .block1{
@@ -212,6 +212,6 @@ export default {
 }
 
 .block2{
-  background-color: #fff;
+  background-color: white;
 }
 </style>

@@ -15,7 +15,7 @@
         v-bind:article="article"
     />
     
-    <b-button class="createbtn" variant="light" type="submit">글쓰기</b-button>
+    <b-button class="createbtn" variant="light" type="submit" v-on:click="goCreateArticle">글쓰기</b-button>
   </div>
 </template>
 
@@ -44,7 +44,6 @@ export default {
             url: `${URL}/api/v1/community/articles/`,
         })
             .then((res) => {
-                // console.log(res.data.filter(movie => movie.season === "겨울" || movie.genres[0] === 10751))
                 console.log(res.data)
                 this.articles = res.data
             })
@@ -52,6 +51,9 @@ export default {
             console.log(err);
             });
         },
+        goCreateArticle(){
+            this.$router.push({ name: 'createArticle' })
+        }
     }
 }
 </script>
