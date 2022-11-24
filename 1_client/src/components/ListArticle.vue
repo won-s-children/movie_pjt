@@ -2,7 +2,9 @@
   <div>
     <ul class="article-wrap">
         <li class="article-id">{{ article.id }}</li>
-        <li class="article-title">{{ article.title }}</li>
+        <router-link :to="{ name: 'articledetail', params: { id: article.id } }">
+          <li class="article-title">{{ article.title }}</li>
+        </router-link>
         <li class="article-who">{{ article.user.username }}</li>
         <li class="article-date">{{ article.created_at | moment('YYYY-MM-DD') }}</li>
     </ul>

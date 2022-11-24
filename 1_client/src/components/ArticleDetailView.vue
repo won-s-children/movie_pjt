@@ -6,7 +6,7 @@
         <li>작성일: {{article.created_at | moment('YYYY-MM-DD')}}</li>
         <li><p>{{ article.content }}</p></li>
     </ul>
-    <b-button variant="outline-secondary" class="deletebtn" v-on:click="delComment(article.id)" v-show="checkUser(article.user.username)" v-if="flag">삭제</b-button>
+    <b-button variant="outline-secondary" class="deletebtn" v-on:click="delArticle(article.id)" v-show="checkUser(article.user.username)" v-if="flag">삭제</b-button>
 
   </div>
 </template>
