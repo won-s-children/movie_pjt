@@ -2,9 +2,7 @@
   <div>
     <ul class="article-wrap">
         <li class="article-id">{{ article.id }}</li>
-        <router-link :to="{ name: 'articledetail', params: { id: article.id } }">
-          <li class="article-title">{{ article.title }}</li>
-        </router-link>
+        <li class="article-title" v-on:click="goArticleDetail(article.id)">{{ article.title }}</li>
         <li class="article-who">{{ article.user.username }}</li>
         <li class="article-date">{{ article.created_at | moment('YYYY-MM-DD') }}</li>
     </ul>
@@ -16,6 +14,11 @@
 <script>
 export default {
   props: ["article"],
+  methods:{
+    goArticleDetail(article_id){
+      this.$router.push({ name: 'articledetail', params: { id: article_id } })
+    },
+  }
 }
 </script>
 
@@ -40,6 +43,11 @@ hr{
 }
 .article-title{
   width:19%;
+  cursor: pointer;
+/* border: 1px solid #000; */
+}
+.article-title:hover{
+  text-decoration: underline;
 /* border: 1px solid #000; */
 }
 
