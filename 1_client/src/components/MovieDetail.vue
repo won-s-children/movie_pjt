@@ -4,7 +4,7 @@
     <div class="detailwrap">
       <img v-bind:src="movieImgURL" alt="movieImg" />
       <div class="card-container">
-        <h2 class="text-pad">{{ movie?.title }}</h2>
+        <h2 class="text-pad"> {{ movie?.title }} </h2>
         <ul class="inforwrap">
           <li class="text-pad">개봉일자: {{ movie?.release_date }}</li>
           <li class="text-pad">평점: {{ movie?.vote_average }}</li>
@@ -21,7 +21,7 @@
           <li v-if="!isLoggedIn" class="text-pad">
             <b-icon icon="heart" v-on:click="needLogin()"></b-icon>
           </li>
-          <li><b-button pill v-on:click="goYoutube">예고편</b-button></li>
+          <li><b-button pill v-on:click="goYoutube" size="sm">예고편</b-button></li>
         </ul>
         <p class="overview">{{ movie?.overview }}</p>
       </div>
@@ -290,6 +290,7 @@ export default {
   text-align: left;
   padding-right: 20px;
   font-weight: bold;
+  margin-top:4px;
 }
 
 .text-pad-color {
@@ -297,6 +298,7 @@ export default {
   padding-right: 20px;
   font-weight: bold;
   color: red;
+  margin-top:4px;
 }
 
 .overview {
