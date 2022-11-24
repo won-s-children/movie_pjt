@@ -10,16 +10,15 @@
           <li class="text-pad">평점: {{ movie?.vote_average }}</li>
           <li class="text-pad">유저평점: {{ total_vote }}</li>
           <li v-if="movieLikeFlag && isLoggedIn" class="text-pad-color">
-            <b-icon
-              icon="heart-fill"
+            <div
               v-on:click="likeMovie(movie?.id)"
-            ></b-icon>
+            >💖</div>
           </li>
           <li v-if="!movieLikeFlag && isLoggedIn" class="text-pad">
-            <b-icon icon="heart" v-on:click="likeMovie(movie?.id)"></b-icon>
+            <div v-on:click="likeMovie(movie?.id)">🤍</div>
           </li>
           <li v-if="!isLoggedIn" class="text-pad">
-            <b-icon icon="heart" v-on:click="needLogin()"></b-icon>
+            <div v-on:click="needLogin()">🤍</div>
           </li>
           <li><b-button pill v-on:click="goYoutube" size="sm">예고편</b-button></li>
         </ul>

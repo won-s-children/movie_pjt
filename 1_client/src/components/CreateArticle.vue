@@ -1,14 +1,20 @@
 <template>
-  <div>
-    <ul>
-        <li>제목: <input type="text" v-model="title"></li>
-        <li>
-            <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력하세요." v-model="content"></textarea>
-        </li>
-    </ul>
-    <button v-on:click="createArticle">등록</button>
-    <button v-on:click="goArticleList">취소</button>
+  <div class="form-box">
+  <div class="form">
+    <div class="mb-3">
+      <label for="exampleFormContrlInput1" class="form-label" >제목</label>
+      <input v-model="title" type="email" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+      <textarea v-model="content" class="form-control" id="exampleFormControlTextarea1" placeholder="내용을 입력하세요." rows="3"></textarea>
+    </div>
+    <div class="create-btn-form">
+      <b-button variant="outline-secondary" v-on:click="createArticle">등록</b-button>
+      <b-button variant="outline-secondary" v-on:click="goArticleList">취소</b-button>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -59,5 +65,24 @@ export default {
 </script>
 
 <style>
-
+.create-btn-form {
+  display: flex;
+  justify-content: center;
+  background-color: #ECEEFF;
+}
+.form {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.form-box {
+  margin: 30px;
+  margin-right: 400px;
+  margin-left: 400px;
+  border: solid rgb(179, 175, 175);
+  border-width: 1px;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
 </style>
