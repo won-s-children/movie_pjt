@@ -1,14 +1,33 @@
 <template>
     <b-list-group-item>
+    <div class="big-box">
+      <div class="block1">
+        <div>
+        <span v-if="reviewLikeFlag && isLoggedIn"><b-icon icon="heart-fill" class="heart heartfill" v-on:click="likeReview(review.id)"></b-icon></span>
+        <span v-if="!reviewLikeFlag && isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="likeReview(review.id)"></b-icon></span>
+        <span v-if="!isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="needLogin()"></b-icon></span>
+        <span class="review-cnt">{{ reviewLikeCnt }}</span>
+      </div>
+      </div>
+
+      <div class="block2">
       <ul class="review-list">
         <li class="username">{{ review.user.username }}&nbsp;&nbsp;[ {{ review.user_vote_average}}점 ]</li>
         <li class="review-data">{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss')  }} 작성</li>
-        <li v-if="reviewLikeFlag && isLoggedIn"><b-icon icon="heart-fill" v-on:click="likeReview(review.id)"></b-icon></li>
-        <li v-if="!reviewLikeFlag && isLoggedIn"><b-icon icon="heart" v-on:click="likeReview(review.id)"></b-icon></li>
-        <li v-if="!isLoggedIn"><b-icon icon="heart" v-on:click="needLogin()"></b-icon></li>
-        <li>{{ reviewLikeCnt }}</li>
         <li class="review-content" v-if="flag">{{ review.content }}</li>
       </ul>
+      </div>
+      
+      <div class="heart-wrap">
+        <span v-if="reviewLikeFlag && isLoggedIn"><b-icon icon="heart-fill" class="heart heartfill" v-on:click="likeReview(review.id)"></b-icon></span>
+        <span v-if="!reviewLikeFlag && isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="likeReview(review.id)"></b-icon></span>
+        <span v-if="!isLoggedIn"><b-icon icon="heart" class="heart" v-on:click="needLogin()"></b-icon></span>
+        <span class="review-cnt">{{ reviewLikeCnt }}</span>
+      </div>
+    </div>
+
+
+    <div>
       <!-- <b-list-group-item class="reviewSet"> -->
         <div class="change-form">
         <div class="change-form" v-if="!flag">
@@ -20,8 +39,9 @@
         <b-button variant="outline-secondary" class="deletebtn" v-on:click="putReview(review.id)" v-if="!flag">수정 등록</b-button>
         <b-button variant="outline-secondary" class="deletebtn" v-on:click="chgUpdate(null ,0)" v-if="!flag">취소</b-button>
       </div>
+    </div>
+  </b-list-group-item>
         <!-- </b-list-group-item> -->
-    </b-list-group-item>
 </template>
 
 <script>
@@ -155,5 +175,42 @@ export default {
   display: flex;
   justify-content: center;
   background-color: white;
+}
+
+.heart{
+  background-color: white;
+}
+
+.heartfill{
+  color: red;
+}
+
+.heart-wrap{
+  width: 55px;
+  /* border: 1px solid #000; */
+  background-color: #fff;
+}
+
+.heart-wrap span {
+  background-color: #fff;
+}
+
+.review-cnt{
+  margin-left: 5px;
+}
+
+.big-box{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.block1{
+  visibility: hidden;
+  width: 55px;
+}
+
+.block2{
+  background-color: #fff;
 }
 </style>
