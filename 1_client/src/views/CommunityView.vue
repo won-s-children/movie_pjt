@@ -16,7 +16,7 @@
         v-bind:article="article"
     />
     
-    <button>작성</button>
+    <button v-on:click="goCreateArticle">작성</button>
   </div>
 </template>
 
@@ -45,7 +45,6 @@ export default {
             url: `${URL}/api/v1/community/articles/`,
         })
             .then((res) => {
-                // console.log(res.data.filter(movie => movie.season === "겨울" || movie.genres[0] === 10751))
                 console.log(res.data)
                 this.articles = res.data
             })
@@ -53,6 +52,9 @@ export default {
             console.log(err);
             });
         },
+        goCreateArticle(){
+            this.$router.push({ name: 'createArticle' })
+        }
     }
 }
 </script>
