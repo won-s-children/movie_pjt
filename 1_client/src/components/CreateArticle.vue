@@ -75,11 +75,14 @@ export default {
   padding-right: 5%;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 .form-box {
   margin: 30px;
   margin-right: 400px;
   margin-left: 400px;
+  margin-top: 60px;
   border: solid rgb(179, 175, 175);
   border-width: 1px;
   border-top-left-radius: 0.25rem;

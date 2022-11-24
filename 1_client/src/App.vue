@@ -14,6 +14,7 @@
         <div class="logoimg-wrap"><a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a></div>
 
         <div class="nav-right">
+          <router-link to="/community" class="hidden">자유게시판</router-link>
           <router-link to="/signup">회원가입</router-link>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
           <router-link to="/login">로그인</router-link>
         </div>
@@ -33,6 +34,7 @@
         <div class="logoimg-wrap"><a href="http://localhost:8080/" class="logo-img"><img src="../src/assets/logo.png"></a></div>
 
         <div class="nav-right">
+          <router-link to="/community" class="hidden">자유게시판</router-link>
           <router-link to="/wishlist">내가 찜한 영화</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
           <a v-on:click="logOut" class="text">로그아웃</a>
         </div>
@@ -153,5 +155,9 @@ nav a.router-link-exact-active {
 
 Footer{
 
+}
+
+.hidden{
+  visibility: hidden;
 }
 </style>

@@ -6,7 +6,9 @@
         <br>
         <li>제목: {{article.title}}</li>
         <li><p>{{ article.content }}</p></li>
+
     </ul>
+    <br>
     <b-button variant="outline-secondary" class="deletebtn" v-on:click="delArticle(article.id)" v-show="checkUser(article.user.username)" v-if="flag">삭제</b-button>
 
   </div>
@@ -88,4 +90,31 @@ export default {
 .name {
   padding-top: 30px;
 }
+/* =======
+.article-dt{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+ul{
+    border: 1px solid #000;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: #fff;
+    width: 400px;
+    padding: 30px 0 20px 0;
+}
+.title{
+    margin-bottom: 10px;
+}
+
+.user{
+    font-size: 13px;
+}
+.date{
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+>>>>>>> Stashed changes */
 </style>
